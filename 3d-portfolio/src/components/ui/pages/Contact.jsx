@@ -43,12 +43,36 @@ const Contact = () => {
     if (!validateForm()) return;
 
     setIsSubmitting(true);
-    setTimeout(() => {
+    
+    fetch("https://formsubmit.co/ajax/yash123ace@gmail.com", {
+      method: "POST",
+      headers: { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
       setIsSubmitting(false);
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      setTimeout(() => setSubmitStatus(null), 5000);
-    }, 1800);
+      if (data.success === "true" || data.success === true) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setSubmitStatus('error');
+      }
+      setTimeout(() => setSubmitStatus(null), 6000);
+    })
+    .catch(() => {
+      setIsSubmitting(false);
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus(null), 6000);
+    });
   };
 
   return (
@@ -153,6 +177,17 @@ const Contact = () => {
               >
                 <CheckCircle size={18} />
                 <span>Thank you! Your message has been sent successfully. I will get back to you soon.</span>
+              </motion.div>
+            )}
+            {submitStatus === 'error' && (
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                className="absolute inset-x-6 bottom-6 bg-red-900 border border-red-800/30 p-4 rounded-md flex items-center gap-3 text-white text-xs font-semibold shadow-lg"
+              >
+                <AlertCircle size={18} />
+                <span>Something went wrong. Please try again or email directly at yash123ace@gmail.com.</span>
               </motion.div>
             )}
           </AnimatePresence>
