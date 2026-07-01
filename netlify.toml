@@ -1,0 +1,5 @@
+[build]
+  # Specifying 3d-portfolio as the base directory for monorepos
+  base = "3d-portfolio"
+  command = "npm run build"
+  publish = "dist"
