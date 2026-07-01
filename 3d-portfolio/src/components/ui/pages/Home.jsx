@@ -28,24 +28,32 @@ const Home = ({ changePage }) => {
 
   // Typewriter effect logic
   useEffect(() => {
-    let timer;
     const currentFullText = roles[currentRoleIndex];
-    
-    if (isDeleting) {
-      timer = setTimeout(() => {
-        setDisplayedText(prev => prev.slice(0, -1));
-      }, 55);
-    } else {
-      timer = setTimeout(() => {
-        setDisplayedText(currentFullText.slice(0, displayedText.length + 1));
-      }, 105);
-    }
+    let timer;
 
-    if (!isDeleting && displayedText === currentFullText) {
-      timer = setTimeout(() => setIsDeleting(true), 1600);
-    } else if (isDeleting && displayedText === '') {
-      setIsDeleting(false);
-      setCurrentRoleIndex(prev => (prev + 1) % roles.length);
+    if (isDeleting) {
+      if (displayedText === '') {
+        // Done deleting, move to next word
+        setIsDeleting(false);
+        setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+      } else {
+        // Delete next character
+        timer = setTimeout(() => {
+          setDisplayedText(prev => prev.slice(0, -1));
+        }, 50);
+      }
+    } else {
+      if (displayedText === currentFullText) {
+        // Done typing, hold for 2000ms
+        timer = setTimeout(() => {
+          setIsDeleting(true);
+        }, 2000);
+      } else {
+        // Type next character
+        timer = setTimeout(() => {
+          setDisplayedText(currentFullText.slice(0, displayedText.length + 1));
+        }, 100);
+      }
     }
 
     return () => clearTimeout(timer);
@@ -71,9 +79,9 @@ const Home = ({ changePage }) => {
           </h1>
         </div>
 
-        {/* Typing Subtitle */}
-        <div className="h-10 md:h-12 flex items-center mb-6 overflow-hidden">
-          <span className="text-lg md:text-2xl font-semibold text-slate-300">
+        {/* Typing Subtitle (overflow-visible to prevent underline or font descender clipping) */}
+        <div className="h-12 md:h-14 flex items-center mb-6 overflow-visible">
+          <span className="text-lg md:text-2xl font-semibold text-slate-300 leading-snug">
             A passionate <span className="text-indigo-400 font-bold underline decoration-indigo-500/40">{displayedText}</span>
           </span>
           <span className="w-1 h-5 md:h-7 bg-indigo-400 ml-1.5 animate-pulse shrink-0"></span>

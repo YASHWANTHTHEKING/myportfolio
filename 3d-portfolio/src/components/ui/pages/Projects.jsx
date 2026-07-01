@@ -282,10 +282,10 @@ const Projects = ({ selectedProjectId, clearSelectedProject }) => {
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.96 }}
-              className="relative w-full max-w-3xl max-h-[85vh] bg-slate-900 border border-white/10 rounded-2xl flex flex-col overflow-hidden text-slate-100 z-10"
+              className="relative w-full max-w-3xl max-h-[90vh] bg-slate-900 border border-white/10 rounded-2xl flex flex-col overflow-hidden text-slate-100 z-10"
             >
               {/* Modal Header */}
-              <div className="flex items-center justify-between p-6 border-b border-white/5 bg-slate-950/30">
+              <div className="flex items-center justify-between p-4 md:p-6 border-b border-white/5 bg-slate-950/30">
                 <div>
                   <span className="text-xs font-bold text-indigo-400 uppercase tracking-wider">
                     {selectedProject.category}
@@ -305,7 +305,7 @@ const Projects = ({ selectedProjectId, clearSelectedProject }) => {
               </div>
 
               {/* Modal Body */}
-              <div className="flex-1 overflow-y-auto p-6 space-y-6 custom-scrollbar text-xs md:text-sm">
+              <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-6 custom-scrollbar text-xs md:text-sm">
                 
                 {/* Description */}
                 <div>
@@ -368,7 +368,7 @@ const Projects = ({ selectedProjectId, clearSelectedProject }) => {
               </div>
 
               {/* Modal Footer */}
-              <div className="flex items-center justify-between p-6 border-t border-white/5 bg-slate-950/30">
+              <div className="flex items-center justify-between p-4 md:p-6 border-t border-white/5 bg-slate-950/30">
                 <a 
                   href={selectedProject.github} 
                   target="_blank" 

@@ -539,7 +539,7 @@ const About = () => {
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.96 }}
-              className="relative w-full max-w-md bg-slate-900 border border-white/10 rounded-2xl p-6 shadow-2xl z-10 text-slate-100"
+              className="relative w-full max-w-md max-h-[90vh] overflow-y-auto custom-scrollbar bg-slate-900 border border-white/10 rounded-2xl p-5 md:p-6 shadow-2xl z-10 text-slate-100"
             >
               <button 
                 onClick={() => setSelectedCert(null)}
