@@ -8,7 +8,7 @@ const items = [
   { id: 'skills', title: 'Technical Skills & 3D Sphere', category: 'Navigation', icon: Sparkles, action: 'navigate' },
   { id: 'experience', title: 'Education & Career Timeline', category: 'Navigation', icon: FileText, action: 'navigate' },
   { id: 'projects', title: 'Featured Portfolio Projects', category: 'Navigation', icon: Laptop, action: 'navigate' },
-  { id: 'stats', title: 'LeetCode & GitHub Coding Stats', category: 'Navigation', icon: Sparkles, action: 'navigate' },
+  { id: 'stats', title: 'Developer & Coding Profiles', category: 'Navigation', icon: Sparkles, action: 'navigate' },
   { id: 'certifications', title: 'Professional Certifications', category: 'Navigation', icon: FileText, action: 'navigate' },
   { id: 'research', title: 'Academic Research Papers', category: 'Navigation', icon: FileText, action: 'navigate' },
   { id: 'blog', title: 'Latest Technical Blogs', category: 'Navigation', icon: FileText, action: 'navigate' },

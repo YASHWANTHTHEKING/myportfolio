@@ -47,43 +47,7 @@ function App() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // Custom Cursor Follower refs (Direct DOM manipulation to avoid React re-renders on mousemove)
-  const cursorRef = useRef(null);
-  const cursorDotRef = useRef(null);
-  const [cursorHovered, setCursorHovered] = useState(false);
 
-  useEffect(() => {
-    const updateMouse = (e) => {
-      if (cursorRef.current) {
-        cursorRef.current.style.left = `${e.clientX}px`;
-        cursorRef.current.style.top = `${e.clientY}px`;
-      }
-      if (cursorDotRef.current) {
-        cursorDotRef.current.style.left = `${e.clientX}px`;
-        cursorDotRef.current.style.top = `${e.clientY}px`;
-      }
-    };
-
-    const handleHoverStart = () => setCursorHovered(true);
-    const handleHoverEnd = () => setCursorHovered(false);
-
-    window.addEventListener('mousemove', updateMouse);
-    
-    // Add hover states to all buttons/links
-    const interactiveElements = document.querySelectorAll('button, a, input, textarea, [role="button"]');
-    interactiveElements.forEach(el => {
-      el.addEventListener('mouseenter', handleHoverStart);
-      el.addEventListener('mouseleave', handleHoverEnd);
-    });
-
-    return () => {
-      window.removeEventListener('mousemove', updateMouse);
-      interactiveElements.forEach(el => {
-        el.removeEventListener('mouseenter', handleHoverStart);
-        el.removeEventListener('mouseleave', handleHoverEnd);
-      });
-    };
-  }, [currentPage, isZoomedToLaptop]); // Re-attach when page overlay components mount/unmount
 
   // View transition logic for clicking laptop
   const handleLaptopClick = () => {
@@ -124,17 +88,7 @@ function App() {
       {/* Mouse Spotlight Lighting Effect */}
       <div className="spotlight-overlay"></div>
 
-      {/* Custom Springy Cursor Follower (Hidden on touchscreen devices) */}
-      <div 
-        ref={cursorRef}
-        className={`hidden md:block custom-cursor ${cursorHovered ? 'custom-cursor-hover' : ''}`}
-        style={{ left: '-100px', top: '-100px' }}
-      />
-      <div 
-        ref={cursorDotRef}
-        className="hidden md:block custom-cursor-dot"
-        style={{ left: '-100px', top: '-100px' }}
-      />
+
       
       {/* 2D Glassmorphic Sidebar/Navbar */}
       <Sidebar 
@@ -153,7 +107,6 @@ function App() {
               <DeskScene 
                 isZoomedToLaptop={isZoomedToLaptop} 
                 onLaptopClick={handleLaptopClick} 
-                onLaptopHover={(hovered) => setCursorHovered(hovered)}
               />
             </Suspense>
           </div>

@@ -156,44 +156,7 @@
   );
 }
 
-/* Custom cursor */
-.custom-cursor {
-  width: 20px;
-  height: 20px;
-  border: 2px solid var(--accent-primary);
-  border-radius: 50%;
-  position: fixed;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 9999;
-  transition: width 0.2s, height 0.2s, background-color 0.2s;
-  mix-blend-mode: difference;
-}
-
-.custom-cursor-dot {
-  width: 6px;
-  height: 6px;
-  background-color: var(--accent-secondary);
-  border-radius: 50%;
-  position: fixed;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 9999;
-}
-
-.custom-cursor-hover {
-  width: 40px;
-  height: 40px;
-  background-color: rgba(99, 102, 241, 0.2);
-  border-color: transparent;
-}
-
-/* Hide default cursor on desktop to only show the custom cursor */
-@media (pointer: fine) {
-  html, body, a, button, input, textarea, select, [role="button"], .cursor-pointer {
-    cursor: none !important;
-  }
-}
+/* Standard browser cursor is enabled. All custom-cursor styles removed for maximum rendering speed and responsiveness. */
 
 /* Marquee / scrolling animations */
 @keyframes marquee {

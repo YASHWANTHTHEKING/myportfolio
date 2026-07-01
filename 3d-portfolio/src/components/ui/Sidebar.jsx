@@ -117,7 +117,7 @@ const Sidebar = ({ currentPage, changePage, openCommandPalette }) => {
     { id: 'skills', icon: Code, label: 'Skills' },
     { id: 'experience', icon: Clock, label: 'Experience' },
     { id: 'projects', icon: Briefcase, label: 'Projects' },
-    { id: 'stats', icon: BarChart2, label: 'Stats' },
+    { id: 'stats', icon: BarChart2, label: 'Profiles' },
     { id: 'certifications', icon: Award, label: 'Certs' },
     { id: 'research', icon: BookOpen, label: 'Research' },
     { id: 'blog', icon: BookOpen, label: 'Blog' },

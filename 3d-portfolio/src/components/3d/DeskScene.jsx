@@ -36,7 +36,7 @@ const CameraController = ({ isZoomedToLaptop }) => {
 };
 
 // 3D Laptop Component
-const Laptop = ({ onLaptopClick, onLaptopHover, isZoomed }) => {
+const Laptop = ({ onLaptopClick, isZoomed }) => {
   const groupRef = useRef();
   const screenRef = useRef();
 
@@ -56,12 +56,12 @@ const Laptop = ({ onLaptopClick, onLaptopHover, isZoomed }) => {
 
   const handlePointerOver = (e) => {
     e.stopPropagation();
-    if (onLaptopHover) onLaptopHover(true);
+    document.body.style.cursor = 'pointer';
   };
 
   const handlePointerOut = (e) => {
     e.stopPropagation();
-    if (onLaptopHover) onLaptopHover(false);
+    document.body.style.cursor = 'auto';
   };
 
   return (
@@ -184,7 +184,7 @@ const FloatingAssets = () => {
   );
 };
 
-const DeskScene = ({ isZoomedToLaptop, onLaptopClick, onLaptopHover }) => {
+const DeskScene = ({ isZoomedToLaptop, onLaptopClick }) => {
   return (
     <Canvas shadows className="w-full h-full">
       <color attach="background" args={['#050816']} />
@@ -210,7 +210,7 @@ const DeskScene = ({ isZoomedToLaptop, onLaptopClick, onLaptopHover }) => {
       <Stars radius={100} depth={50} count={3000} factor={4} saturation={0.5} fade speed={1.5} />
 
       <group position={[0, -0.2, 0]}>
-        <Laptop onLaptopClick={onLaptopClick} onLaptopHover={onLaptopHover} isZoomed={isZoomedToLaptop} />
+        <Laptop onLaptopClick={onLaptopClick} isZoomed={isZoomedToLaptop} />
         <Desk />
         <FloatingAssets />
         <ContactShadows 
