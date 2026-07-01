@@ -69,9 +69,9 @@ const Home = ({ changePage }) => {
     >
       <div className="max-w-2xl z-10">
         
-        {/* Large Greeting (Engraved-plaque spacing feel) */}
+        {/* Large Greeting (Engraved-plaque spacing feel, text-secondary) */}
         <div>
-          <span className="text-[var(--accent-primary)] font-sans font-bold uppercase tracking-[0.25em] text-xs md:text-sm block mb-3">
+          <span className="text-[var(--text-secondary)] font-sans font-bold uppercase tracking-[0.25em] text-xs md:text-sm block mb-3">
             HELLO, I'M
           </span>
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-light text-[var(--text-primary)] leading-tight mb-4">
@@ -79,12 +79,12 @@ const Home = ({ changePage }) => {
           </h1>
         </div>
 
-        {/* Typing Subtitle */}
+        {/* Typing Subtitle (Underlined in Accent, Text Primary) */}
         <div className="h-12 md:h-14 flex items-center mb-6 overflow-visible">
           <span className="text-lg md:text-2xl font-serif font-light text-[var(--text-secondary)] leading-snug">
-            A passionate <span className="text-[var(--accent-primary)] font-medium underline decoration-[var(--accent-primary)]/30">{displayedText}</span>
+            A passionate <span className="text-[var(--text-primary)] font-medium underline decoration-accent-primary/40">{displayedText}</span>
           </span>
-          <span className="w-0.5 h-5 md:h-7 bg-[var(--accent-primary)] ml-1.5 animate-pulse shrink-0"></span>
+          <span className="w-0.5 h-5 md:h-7 bg-accent-primary ml-1.5 animate-pulse shrink-0"></span>
         </div>
 
         {/* Description */}
@@ -92,18 +92,18 @@ const Home = ({ changePage }) => {
           Passionate Computer Science Engineering student building intelligent applications using Artificial Intelligence, Machine Learning, Computer Vision, Python, Java, and modern web technologies.
         </p>
 
-        {/* CTA Buttons (Sharp Corners, Muted Metals look) */}
+        {/* CTA Buttons (Cobalt Accent & Cream/Limestone borders) */}
         <div className="flex flex-wrap gap-4 mb-10">
           <a
             href="#"
-            className="flex items-center gap-2 bg-[var(--accent-primary)] hover:bg-transparent text-[#0f1210] hover:text-[var(--accent-primary)] border border-[var(--accent-primary)] px-6 py-3.5 rounded-md text-sm font-semibold tracking-wider transition-all duration-500 group cursor-pointer"
+            className="flex items-center gap-2 bg-accent-primary hover:bg-transparent text-text-on-accent hover:text-accent-primary border border-accent-primary px-6 py-3.5 rounded-md text-sm font-semibold tracking-wider transition-all duration-500 group cursor-pointer"
           >
             <span>DOWNLOAD RESUME</span>
             <FileText size={16} className="group-hover:scale-105 transition-all duration-500" />
           </a>
           <button 
             onClick={() => changePage('projects')}
-            className="flex items-center gap-2 bg-transparent hover:bg-[var(--accent-primary)] text-[var(--text-primary)] hover:text-[#0f1210] border border-[var(--card-border)] hover:border-[var(--accent-primary)] px-6 py-3.5 rounded-md text-sm font-semibold tracking-wider transition-all duration-500 group cursor-pointer"
+            className="flex items-center gap-2 bg-transparent hover:bg-accent-primary text-[var(--text-primary)] hover:text-text-on-accent border border-[var(--border)] hover:border-accent-primary px-6 py-3.5 rounded-md text-sm font-semibold tracking-wider transition-all duration-500 group cursor-pointer"
           >
             <span>VIEW PROJECTS</span>
             <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-all duration-500" />
@@ -112,8 +112,8 @@ const Home = ({ changePage }) => {
 
         {/* Social Nodes & Location */}
         <div className="flex flex-wrap items-center gap-5 text-[var(--text-secondary)] text-xs font-semibold uppercase tracking-wider">
-          <div className="flex items-center gap-2 bg-white/5 border border-white/5 px-3 py-2 rounded-md">
-            <MapPin size={14} className="text-[var(--accent-primary)]" />
+          <div className="flex items-center gap-2 bg-[var(--bg-secondary)] border border-[var(--border)] px-3 py-2 rounded-md">
+            <MapPin size={14} className="text-[var(--text-secondary)]" />
             <span>Chennai, India</span>
           </div>
 
@@ -122,7 +122,7 @@ const Home = ({ changePage }) => {
               href="https://github.com/YASHWANTHTHEKING" 
               target="_blank" 
               rel="noreferrer" 
-              className="p-2.5 bg-white/5 hover:bg-[var(--accent-primary)]/10 rounded-md hover:text-[var(--accent-primary)] border border-white/5 hover:border-[var(--accent-primary)]/20 transition-all duration-500 cursor-pointer"
+              className="p-2.5 bg-[var(--bg-secondary)] hover:bg-[var(--border)]/30 rounded-md hover:text-accent-primary border border-[var(--border)] transition-all duration-500 cursor-pointer"
               title="GitHub"
             >
               <Github size={18} />
@@ -131,14 +131,14 @@ const Home = ({ changePage }) => {
               href="https://www.linkedin.com/in/yashwanth-nv-78b5502a4/" 
               target="_blank" 
               rel="noreferrer" 
-              className="p-2.5 bg-white/5 hover:bg-[var(--accent-primary)]/10 rounded-md hover:text-[var(--accent-primary)] border border-white/5 hover:border-[var(--accent-primary)]/20 transition-all duration-500 cursor-pointer"
+              className="p-2.5 bg-[var(--bg-secondary)] hover:bg-[var(--border)]/30 rounded-md hover:text-accent-primary border border-[var(--border)] transition-all duration-500 cursor-pointer"
               title="LinkedIn"
             >
               <Linkedin size={18} />
             </a>
             <a 
               href="mailto:yash123ace@gmail.com" 
-              className="p-2.5 bg-white/5 hover:bg-[var(--accent-primary)]/10 rounded-md hover:text-[var(--accent-primary)] border border-white/5 hover:border-[var(--accent-primary)]/20 transition-all duration-500 cursor-pointer"
+              className="p-2.5 bg-[var(--bg-secondary)] hover:bg-[var(--border)]/30 rounded-md hover:text-accent-primary border border-[var(--border)] transition-all duration-500 cursor-pointer"
               title="Email"
             >
               <Mail size={18} />

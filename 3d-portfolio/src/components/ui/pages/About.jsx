@@ -92,7 +92,7 @@ const timelineData = [
     subtitle: 'Prince Shri Venkateshwara Padmavathi Engineering College',
     date: '2023 - 2027',
     icon: BookOpen,
-    color: 'text-accent-primary bg-accent-primary/10 border-accent-primary/20',
+    color: 'text-[var(--text-primary)] bg-[var(--bg-secondary)] border-[var(--border)]',
     details: 'Currently pursuing B.E. in Computer Science and Engineering. Focusing on Artificial Intelligence, Database Management Systems, Theory of Computation, and Software Engineering. Maintained a cumulative CGPA of 7.65.'
   },
   {
@@ -102,7 +102,7 @@ const timelineData = [
     subtitle: 'Healthcare Research & Data Modeling',
     date: '2025',
     icon: Briefcase,
-    color: 'text-accent-primary bg-accent-primary/10 border-accent-primary/20',
+    color: 'text-[var(--text-primary)] bg-[var(--bg-secondary)] border-[var(--border)]',
     details: 'Actively contributed to data data modeling and algorithm development within the healthcare domain. Analyzed large-scale healthcare datasets to extract actionable insights, built efficient and structured data models, and explored data security considerations in healthcare systems.'
   },
   {
@@ -112,7 +112,7 @@ const timelineData = [
     subtitle: 'Research Project',
     date: '2025',
     icon: Cpu,
-    color: 'text-accent-primary bg-accent-primary/10 border-accent-primary/20',
+    color: 'text-[var(--text-primary)] bg-[var(--bg-secondary)] border-[var(--border)]',
     details: 'Developed a system leveraging OpenCV and deep learning to assess classroom or work attentiveness using real-time face mesh analysis, eye aspect ratios, and head pose estimation. Published experimental literature survey.'
   },
   {
@@ -122,7 +122,7 @@ const timelineData = [
     subtitle: 'Graph Database Association',
     date: '2025',
     icon: Award,
-    color: 'text-accent-primary bg-accent-primary/10 border-accent-primary/20',
+    color: 'text-[var(--text-primary)] bg-[var(--bg-secondary)] border-[var(--border)]',
     details: 'Earned the official Neo4j Graph Database Developer certification. Excelled in Cypher query optimization, graph schema design, data imports, and utilizing graph algorithms for relationship routing.'
   },
   {
@@ -132,7 +132,7 @@ const timelineData = [
     subtitle: 'Problem Solving Platform',
     date: '2024 - 2025',
     icon: CheckCircle,
-    color: 'text-accent-primary bg-accent-primary/10 border-accent-primary/20',
+    color: 'text-[var(--text-primary)] bg-[var(--bg-secondary)] border-[var(--border)]',
     details: 'Solved over 200 algorithms and data structures problems on platforms like LeetCode and GFG. Gained deep proficiency in Dynamic Programming, Graph Traversals, Greedy Algorithms, and complex Arrays/Strings manipulation.'
   },
   {
@@ -142,7 +142,7 @@ const timelineData = [
     subtitle: 'Engineering Solution Simulation',
     date: '2024',
     icon: Briefcase,
-    color: 'text-accent-primary bg-accent-primary/10 border-accent-primary/20',
+    color: 'text-[var(--text-primary)] bg-[var(--bg-secondary)] border-[var(--border)]',
     details: 'Assisted in building responsive component layouts using React, Tailwind CSS, and vanilla JS. Conducted unit tests and optimization checks, increasing page load speed by 20% on mock dashboards.'
   }
 ];
@@ -188,21 +188,21 @@ const profileLinks = [
     username: 'YASHWANTHTHEKING',
     url: 'https://github.com/YASHWANTHTHEKING',
     desc: 'Explore open-source repositories, current AI/ML models, computer vision systems, and full-stack software developments.',
-    colorClass: 'text-accent-primary border-accent-primary/25 hover:border-accent-primary/40 bg-accent-primary/5'
+    colorClass: 'text-[var(--text-primary)] border-[var(--border)] hover:border-[var(--text-secondary)] bg-transparent'
   },
   {
     name: 'LeetCode',
     username: 'yash123ace',
     url: 'https://leetcode.com/u/yash123ace/',
     desc: 'Review algorithm challenges, dynamic programming solutions, database query structures, and core data structure implementations.',
-    colorClass: 'text-accent-primary border-accent-primary/25 hover:border-accent-primary/40 bg-accent-primary/5'
+    colorClass: 'text-[var(--text-primary)] border-[var(--border)] hover:border-[var(--text-secondary)] bg-transparent'
   },
   {
     name: 'LinkedIn',
     username: 'Yashwanth N.V.',
     url: 'https://www.linkedin.com/in/yashwanth-nv-78b5502a4/',
     desc: 'Connect professionally, view academic credentials, professional certifications, career milestones, and industry updates.',
-    colorClass: 'text-accent-primary border-accent-primary/25 hover:border-accent-primary/40 bg-accent-primary/5'
+    colorClass: 'text-[var(--text-primary)] border-[var(--border)] hover:border-[var(--text-secondary)] bg-transparent'
   }
 ];
 
@@ -270,8 +270,8 @@ const About = () => {
             >
               {/* Left Column: Brief details */}
               <div className="lg:col-span-4 flex flex-col items-center glass-card p-6 rounded-md">
-                <div className="w-32 h-32 md:w-36 md:h-36 bg-[var(--bg-secondary)] border border-[var(--accent-primary)]/35 rounded-full flex items-center justify-center relative shadow-inner">
-                  <div className="absolute inset-1 border border-dashed border-[var(--accent-primary)]/15 rounded-full" />
+                <div className="w-32 h-32 md:w-36 md:h-36 bg-[var(--bg-secondary)] border border-[var(--border)] rounded-full flex items-center justify-center relative shadow-inner">
+                  <div className="absolute inset-1 border border-dashed border-[var(--border)] rounded-full" />
                   <span className="font-serif font-light text-3xl md:text-4xl tracking-[0.15em] text-[var(--text-primary)] pl-1.5 select-none">
                     NVY
                   </span>
@@ -286,7 +286,7 @@ const About = () => {
                   {bioTags.map(tag => (
                     <span 
                       key={tag} 
-                      className="text-xs bg-accent-primary/10 text-accent-primary border border-accent-primary/20 px-2.5 py-1 rounded-lg uppercase font-semibold tracking-wider"
+                      className="text-xs text-[var(--text-secondary)] border border-[var(--border)] px-2.5 py-1 rounded-md uppercase font-semibold tracking-wider bg-transparent"
                     >
                       {tag}
                     </span>
@@ -299,7 +299,7 @@ const About = () => {
                 {/* Biography card */}
                 <div className="glass-card p-6 md:p-8 rounded-md">
                   <h3 className="text-base font-bold text-slate-200 mb-3 flex items-center gap-2">
-                    <CheckCircle size={16} className="text-accent-primary" />
+                    <CheckCircle size={16} className="text-[var(--text-secondary)]" />
                     Biography
                   </h3>
                   <p className="text-slate-300 text-sm md:text-base leading-relaxed font-medium">
@@ -312,7 +312,7 @@ const About = () => {
                 {/* Education card */}
                 <div className="glass-card p-6 md:p-8 rounded-md">
                   <h3 className="text-base font-bold text-slate-200 mb-4 flex items-center gap-2">
-                    <BookOpen size={16} className="text-accent-primary" />
+                    <BookOpen size={16} className="text-[var(--text-secondary)]" />
                     Education
                   </h3>
                   
@@ -321,15 +321,15 @@ const About = () => {
                       <h4 className="font-bold text-slate-200 text-sm md:text-base">
                         Prince Shri Venkateshwara Padmavathi Engineering College
                       </h4>
-                      <span className="text-xs text-accent-primary font-semibold bg-accent-primary/10 px-2.5 py-1 rounded-md shrink-0 flex items-center gap-1">
+                      <span className="text-xs text-[var(--text-secondary)] border border-[var(--border)] px-2.5 py-1 rounded-md bg-transparent shrink-0 flex items-center gap-1">
                         <Calendar size={12} />
                         2023 - 2027
                       </span>
                     </div>
                     <p className="text-slate-400 text-xs md:text-sm font-medium mt-1">B.E. Computer Science and Engineering</p>
                     
-                    <div className="mt-3.5 flex items-center gap-2 bg-white/5 border border-white/5 rounded-md p-3 w-fit">
-                      <Award size={16} className="text-accent-primary" />
+                    <div className="mt-3.5 flex items-center gap-2 bg-transparent border border-[var(--border)] rounded-md p-3 w-fit">
+                      <Award size={16} className="text-[var(--text-secondary)]" />
                       <span className="text-slate-300 text-xs font-semibold">Cumulative CGPA: <strong className="text-slate-100 text-sm">7.65</strong></span>
                     </div>
                   </div>
@@ -338,7 +338,7 @@ const About = () => {
                 {/* Testimonials Slider */}
                 <div className="glass-card p-6 rounded-md relative">
                   <h3 className="text-base font-bold text-slate-200 mb-4 flex items-center gap-2">
-                    <Award size={16} className="text-accent-primary" />
+                    <Award size={16} className="text-[var(--text-secondary)]" />
                     Recommendations & Testimonials
                   </h3>
 
@@ -352,7 +352,7 @@ const About = () => {
                         transition={{ duration: 0.2 }}
                         className="w-full"
                       >
-                        <p className="text-slate-300 italic text-sm leading-relaxed pl-4 border-l-2 border-accent-primary/40">
+                        <p className="text-slate-300 italic text-sm leading-relaxed pl-4 border-l-2 border-[var(--border)]">
                           "{testimonials[activeTestimonial].quote}"
                         </p>
                         <div className="mt-3 pl-4">
@@ -368,7 +368,7 @@ const About = () => {
                       <button
                         key={i}
                         onClick={() => setActiveTestimonial(i)}
-                        className={`w-2 h-2 rounded-full transition-all cursor-pointer ${activeTestimonial === i ? 'bg-accent-primary w-4' : 'bg-slate-700 hover:bg-slate-500'}`}
+                        className={`w-2 h-2 rounded-full transition-all cursor-pointer ${activeTestimonial === i ? 'bg-accent-primary w-4' : 'bg-[var(--border)] hover:bg-[var(--text-secondary)]'}`}
                         aria-label={`Go to testimonial ${i + 1}`}
                       />
                     ))}
@@ -394,7 +394,7 @@ const About = () => {
                         href={profile.url}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex items-center justify-center gap-1.5 bg-accent-primary hover:bg-accent-primary/80 text-[#0f1210] text-xs font-bold py-2.5 px-3 rounded-md transition-all cursor-pointer shrink-0"
+                        className="flex items-center justify-center gap-1.5 bg-accent-primary hover:bg-transparent text-text-on-accent hover:text-accent-primary border border-accent-primary text-xs font-bold py-2.5 px-3 rounded-md transition-all cursor-pointer shrink-0"
                       >
                         <span>Visit {profile.name}</span>
                         <ExternalLink size={12} />
@@ -433,7 +433,7 @@ const About = () => {
                       {group.items.map(skill => (
                         <span 
                           key={skill}
-                          className="text-xs bg-slate-950/50 hover:bg-accent-primary/10 text-slate-300 hover:text-accent-primary border border-white/5 hover:border-accent-primary/20 px-2.5 py-1.5 rounded-lg transition-all"
+                          className="text-xs text-[var(--text-secondary)] border border-[var(--border)] px-2.5 py-1.5 rounded-md transition-all bg-transparent hover:border-[var(--text-primary)] hover:text-[var(--text-primary)]"
                         >
                           {skill}
                         </span>
@@ -458,14 +458,14 @@ const About = () => {
                 const Icon = item.icon;
                 return (
                   <div key={item.id} className="relative pl-6 group">
-                    <span className="absolute -left-[13px] top-1.5 w-6 h-6 rounded-full border-2 border-slate-950 flex items-center justify-center text-accent-primary bg-accent-primary/10 z-10">
+                    <span className="absolute -left-[13px] top-1.5 w-6 h-6 rounded-full border border-[var(--border)] flex items-center justify-center text-[var(--text-secondary)] bg-[var(--bg-secondary)] z-10">
                       <Icon size={12} />
                     </span>
 
                     <div className="glass-card p-5 rounded-md border border-white/5">
                       <div className="flex flex-col md:flex-row md:items-center justify-between gap-1">
                         <div>
-                          <span className="text-xs font-bold uppercase tracking-wider text-accent-primary bg-accent-primary/10 px-2 py-0.5 rounded">
+                          <span className="text-xs font-bold uppercase tracking-wider text-[var(--text-secondary)] border border-[var(--border)] px-2 py-0.5 rounded-md bg-transparent">
                             {item.category}
                           </span>
                           <h3 className="text-base font-bold text-slate-200 mt-2">
@@ -504,10 +504,10 @@ const About = () => {
                 <div
                   key={cert.id}
                   onClick={() => setSelectedCert(cert)}
-                  className="glass-card p-5 rounded-md border border-white/5 cursor-pointer flex flex-col justify-between hover:border-accent-primary/20 transition-all duration-200"
+                  className="glass-card p-5 rounded-md border border-white/5 cursor-pointer flex flex-col justify-between hover:border-[var(--text-secondary)] transition-all duration-200"
                 >
                   <div>
-                    <span className="text-xs font-bold text-accent-primary uppercase tracking-widest block mb-2">
+                    <span className="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-widest block mb-2">
                       VERIFIED CREDENTIAL
                     </span>
                     <h3 className="text-base font-bold text-slate-200 leading-snug">
@@ -524,7 +524,7 @@ const About = () => {
                       <Calendar size={12} />
                       {cert.date}
                     </span>
-                    <span className="text-accent-primary flex items-center gap-1 hover:text-accent-primary">
+                    <span className="text-accent-primary flex items-center gap-1 hover:underline">
                       Verify <ChevronRight size={12} />
                     </span>
                   </div>
