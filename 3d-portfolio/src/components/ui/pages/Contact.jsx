@@ -60,13 +60,19 @@ const Contact = () => {
     .then(response => response.json())
     .then(data => {
       setIsSubmitting(false);
-      if (data.success === "true" || data.success === true) {
+      const isSuccess = data.success === "true" || data.success === true;
+      const msg = data.message ? data.message.toLowerCase() : '';
+      
+      if (isSuccess) {
         setSubmitStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else if (msg.includes('activate') || msg.includes('confirm') || msg.includes('activation')) {
+        setSubmitStatus('activation_required');
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
         setSubmitStatus('error');
       }
-      setTimeout(() => setSubmitStatus(null), 6000);
+      setTimeout(() => setSubmitStatus(null), 8000);
     })
     .catch(() => {
       setIsSubmitting(false);
@@ -188,6 +194,17 @@ const Contact = () => {
               >
                 <AlertCircle size={18} />
                 <span>Something went wrong. Please try again or email directly at yash123ace@gmail.com.</span>
+              </motion.div>
+            )}
+            {submitStatus === 'activation_required' && (
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                className="absolute inset-x-6 bottom-6 bg-[#b97d26] border border-amber-600/30 p-4 rounded-md flex items-center gap-3 text-white text-xs font-semibold shadow-lg"
+              >
+                <AlertCircle size={18} />
+                <span>Activation email sent! Please check yash123ace@gmail.com to activate this form.</span>
               </motion.div>
             )}
           </AnimatePresence>
