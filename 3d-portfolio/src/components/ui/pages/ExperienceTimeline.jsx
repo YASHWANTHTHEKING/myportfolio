@@ -14,6 +14,16 @@ const timelineData = [
     details: 'Currently pursuing B.E. in Computer Science and Engineering. Focusing on Artificial Intelligence, Database Management Systems, Theory of Computation, and Software Engineering. Maintained a cumulative CGPA of 7.65.'
   },
   {
+    id: 6,
+    category: 'Internships',
+    title: 'Data Specialization Intern',
+    subtitle: 'Healthcare Research & Data Modeling',
+    date: '2025',
+    icon: Briefcase,
+    color: 'text-indigo-400 bg-indigo-500/10 border-indigo-500/20',
+    details: 'Actively contributed to data modeling and algorithm development within the healthcare domain. Analyzed large-scale healthcare datasets to extract actionable insights, built efficient and structured data models, and explored data security considerations in healthcare systems.'
+  },
+  {
     id: 2,
     category: 'Projects',
     title: 'Real-Time Attentiveness Detection',
