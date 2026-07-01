@@ -272,7 +272,7 @@ const About = () => {
               <div className="lg:col-span-4 flex flex-col items-center glass-card p-6 rounded-md">
                 <div className="w-32 h-32 md:w-36 md:h-36 bg-slate-950 border border-white/10 rounded-md flex items-center justify-center relative overflow-hidden">
                   <img 
-                    src="/Yashwanth.jpg" 
+                    src="Yashwanth.jpg" 
                     alt="N.V. Yashwanth" 
                     className="w-full h-full object-cover relative z-10" 
                   />
