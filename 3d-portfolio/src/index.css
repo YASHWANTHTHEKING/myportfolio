@@ -82,6 +82,17 @@
     font-family: var(--font-space);
     font-weight: 500;
   }
+  
+  button {
+    outline: none;
+  }
+  button:focus {
+    outline: none;
+  }
+  button:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+  }
 }
 
 /* Luxury Card Components (Tailored, Sharp Corners) */

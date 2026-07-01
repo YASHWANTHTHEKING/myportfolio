@@ -270,12 +270,11 @@ const About = () => {
             >
               {/* Left Column: Brief details */}
               <div className="lg:col-span-4 flex flex-col items-center glass-card p-6 rounded-md">
-                <div className="w-32 h-32 md:w-36 md:h-36 bg-slate-950 border border-white/10 rounded-md flex items-center justify-center relative overflow-hidden">
-                  <img 
-                    src="Yashwanth.jpg" 
-                    alt="N.V. Yashwanth" 
-                    className="w-full h-full object-cover relative z-10" 
-                  />
+                <div className="w-32 h-32 md:w-36 md:h-36 bg-[var(--bg-secondary)] border border-[var(--accent-primary)]/35 rounded-full flex items-center justify-center relative shadow-inner">
+                  <div className="absolute inset-1 border border-dashed border-[var(--accent-primary)]/15 rounded-full" />
+                  <span className="font-serif font-light text-3xl md:text-4xl tracking-[0.15em] text-[var(--text-primary)] pl-1.5 select-none">
+                    NVY
+                  </span>
                 </div>
 
                 <div className="mt-5 text-center">
