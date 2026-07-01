@@ -51,7 +51,7 @@ const Home = ({ changePage }) => {
       } else {
         // Type next character
         timer = setTimeout(() => {
-          setDisplayedText(currentFullText.slice(0, displayedText.length + 1));
+          setDisplayedText(prev => currentFullText.slice(0, prev.length + 1));
         }, 100);
       }
     }
@@ -80,9 +80,9 @@ const Home = ({ changePage }) => {
         </div>
 
         {/* Typing Subtitle (Underlined in Accent, Text Primary) */}
-        <div className="h-12 md:h-14 flex items-center mb-6 overflow-visible">
-          <span className="text-lg md:text-2xl font-serif font-light text-[var(--text-secondary)] leading-snug">
-            A passionate <span className="text-[var(--text-primary)] font-medium underline decoration-accent-primary/40">{displayedText}</span>
+        <div className="min-h-[2.5rem] md:min-h-[3.5rem] flex items-center mb-6 overflow-visible py-1">
+          <span className="text-sm sm:text-base md:text-2xl font-serif font-light text-[var(--text-secondary)] leading-snug">
+            A passionate <span className="text-[var(--text-primary)] font-medium underline decoration-accent-primary/40 whitespace-nowrap">{displayedText}</span>
           </span>
           <span className="w-0.5 h-5 md:h-7 bg-accent-primary ml-1.5 animate-pulse shrink-0"></span>
         </div>

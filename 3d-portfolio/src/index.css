@@ -90,14 +90,17 @@
   }
   
   button {
-    outline: none;
+    outline: none !important;
+    box-shadow: none !important;
   }
   button:focus {
-    outline: none;
+    outline: none !important;
+    box-shadow: none !important;
   }
   button:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: rgba(76, 126, 243, 0.12);
   }
 }
 
