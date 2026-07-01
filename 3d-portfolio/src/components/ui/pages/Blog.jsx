@@ -141,7 +141,7 @@ const Blog = () => {
                   <button
                     key={cat}
                     onClick={() => setSelectedCategory(cat)}
-                    className={`text-xs px-3.5 py-1.5 rounded-xl border transition-all font-semibold uppercase tracking-wider cursor-pointer ${selectedCategory === cat ? 'bg-indigo-600 border-indigo-500 text-white' : 'bg-white/5 border-white/5 text-slate-400 hover:text-slate-200'}`}
+                    className={`text-xs px-3.5 py-1.5 rounded-md border transition-all font-semibold uppercase tracking-wider cursor-pointer ${selectedCategory === cat ? 'bg-accent-primary border-accent-primary text-[#0f1210]' : 'bg-white/5 border-white/5 text-slate-400 hover:text-slate-200'}`}
                   >
                     {cat}
                   </button>
@@ -149,7 +149,7 @@ const Blog = () => {
               </div>
 
               {/* Search Box */}
-              <div className="flex items-center gap-2 bg-white/5 border border-white/5 px-3 py-2 rounded-xl w-full sm:w-64">
+              <div className="flex items-center gap-2 bg-white/5 border border-white/5 px-3 py-2 rounded-md w-full sm:w-64">
                 <Search size={14} className="text-slate-400" />
                 <input 
                   type="text" 
@@ -172,11 +172,11 @@ const Blog = () => {
                   <div
                     key={art.id}
                     onClick={() => setSelectedArticle(art)}
-                    className="glass-card p-6 rounded-2xl border border-white/5 cursor-pointer flex flex-col justify-between"
+                    className="glass-card p-6 rounded-md border border-white/5 cursor-pointer flex flex-col justify-between"
                   >
                     <div>
                       <div className="flex items-center justify-between text-xs text-slate-400 font-semibold mb-3">
-                        <span className="text-indigo-400 uppercase tracking-widest bg-indigo-500/10 border border-indigo-500/15 px-2 py-0.5 rounded">
+                        <span className="text-accent-primary uppercase tracking-widest bg-accent-primary/10 border border-accent-primary/15 px-2 py-0.5 rounded">
                           {art.category}
                         </span>
                         <div className="flex items-center gap-2">
@@ -194,7 +194,7 @@ const Blog = () => {
                       </p>
                     </div>
 
-                    <div className="border-t border-white/5 pt-3.5 mt-4 flex items-center justify-end text-xs text-indigo-400 font-semibold">
+                    <div className="border-t border-white/5 pt-3.5 mt-4 flex items-center justify-end text-xs text-accent-primary font-semibold">
                       <span className="flex items-center gap-1">Read Article <ArrowRight size={13} /></span>
                     </div>
                   </div>
@@ -216,18 +216,18 @@ const Blog = () => {
             <div className="flex items-center justify-between">
               <button 
                 onClick={() => setSelectedArticle(null)}
-                className="flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-slate-200 bg-white/5 border border-white/5 px-4 py-2.5 rounded-xl transition-all cursor-pointer"
+                className="flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-slate-200 bg-white/5 border border-white/5 px-4 py-2.5 rounded-md transition-all cursor-pointer"
               >
                 <ArrowLeft size={14} /> Back to Articles
               </button>
 
-              <span className="text-xs text-indigo-400 uppercase tracking-widest font-bold bg-indigo-500/10 px-3 py-1.5 rounded-xl">
+              <span className="text-xs text-accent-primary uppercase tracking-widest font-bold bg-accent-primary/10 px-3 py-1.5 rounded-md">
                 {selectedArticle.category}
               </span>
             </div>
 
             {/* Article Card */}
-            <div className="glass-card p-6 md:p-8 rounded-2xl border border-white/5 space-y-6">
+            <div className="glass-card p-6 md:p-8 rounded-md border border-white/5 space-y-6">
               {/* Meta */}
               <div className="flex items-center gap-4 text-xs text-slate-400 font-semibold border-b border-white/5 pb-4">
                 <span className="flex items-center gap-1.5"><Calendar size={13} /> {selectedArticle.date}</span>
@@ -256,7 +256,7 @@ const Blog = () => {
                     const lang = lines[0].replace('```', '');
                     const code = lines.slice(1, -1).join('\n');
                     return (
-                      <div key={i} className="bg-black/40 border border-white/5 rounded-xl p-4 my-4 font-mono text-xs text-indigo-300 overflow-x-auto custom-scrollbar relative">
+                      <div key={i} className="bg-black/40 border border-white/5 rounded-md p-4 my-4 font-mono text-xs text-accent-primary overflow-x-auto custom-scrollbar relative">
                         <div className="absolute top-2 right-4 text-xs uppercase font-bold text-slate-400 select-none">
                           {lang || 'code'}
                         </div>

@@ -158,13 +158,13 @@ const Projects = ({ selectedProjectId, clearSelectedProject }) => {
       <div className="flex border-b border-white/10 mb-8 gap-1.5">
         <button
           onClick={() => setActiveTab('projects')}
-          className={`px-4 py-2.5 text-sm font-semibold tracking-wide border-b-2 transition-all cursor-pointer ${activeTab === 'projects' ? 'border-indigo-500 text-indigo-400' : 'border-transparent text-slate-400 hover:text-slate-200'}`}
+          className={`px-4 py-2.5 text-sm font-semibold tracking-wide border-b-2 transition-all cursor-pointer ${activeTab === 'projects' ? 'border-accent-primary text-accent-primary' : 'border-transparent text-slate-400 hover:text-slate-200'}`}
         >
           Featured Projects ({projects.length})
         </button>
         <button
           onClick={() => setActiveTab('research')}
-          className={`px-4 py-2.5 text-sm font-semibold tracking-wide border-b-2 transition-all cursor-pointer ${activeTab === 'research' ? 'border-indigo-500 text-indigo-400' : 'border-transparent text-slate-400 hover:text-slate-200'}`}
+          className={`px-4 py-2.5 text-sm font-semibold tracking-wide border-b-2 transition-all cursor-pointer ${activeTab === 'research' ? 'border-accent-primary text-accent-primary' : 'border-transparent text-slate-400 hover:text-slate-200'}`}
         >
           Academic Research ({researchPapers.length})
         </button>
@@ -185,10 +185,10 @@ const Projects = ({ selectedProjectId, clearSelectedProject }) => {
               <div 
                 key={project.id}
                 onClick={() => setSelectedProject(project)}
-                className="glass-card p-6 rounded-2xl border border-white/5 cursor-pointer flex flex-col justify-between hover:border-indigo-500/20 hover:scale-[1.01] transition-all"
+                className="glass-card p-6 rounded-md border border-white/5 cursor-pointer flex flex-col justify-between hover:border-accent-primary/20 hover:scale-[1.01] transition-all"
               >
                 <div>
-                  <span className="text-xs font-bold text-indigo-400 bg-indigo-500/10 px-2.5 py-0.5 rounded uppercase tracking-wider">
+                  <span className="text-xs font-bold text-accent-primary bg-accent-primary/10 px-2.5 py-0.5 rounded uppercase tracking-wider">
                     {project.category}
                   </span>
                   
@@ -225,12 +225,12 @@ const Projects = ({ selectedProjectId, clearSelectedProject }) => {
             {researchPapers.map((paper) => (
               <div 
                 key={paper.id}
-                className="glass-card p-6 rounded-2xl border border-white/5 flex flex-col justify-between"
+                className="glass-card p-6 rounded-md border border-white/5 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex justify-between items-start flex-wrap gap-2 mb-3">
                     <div>
-                      <span className="text-xs font-bold text-indigo-400 bg-indigo-500/10 px-2.5 py-0.5 rounded uppercase tracking-wider">
+                      <span className="text-xs font-bold text-accent-primary bg-accent-primary/10 px-2.5 py-0.5 rounded uppercase tracking-wider">
                         {paper.domain}
                       </span>
                       <h3 className="text-base md:text-lg font-bold text-slate-200 mt-2.5 leading-snug">
@@ -249,7 +249,7 @@ const Projects = ({ selectedProjectId, clearSelectedProject }) => {
                 </div>
 
                 <div className="flex justify-between items-center border-t border-white/5 pt-4 text-xs font-semibold">
-                  <span className="text-indigo-400 flex items-center gap-1.5">
+                  <span className="text-accent-primary flex items-center gap-1.5">
                     <FileText size={14} />
                     {paper.status}
                   </span>
@@ -282,12 +282,12 @@ const Projects = ({ selectedProjectId, clearSelectedProject }) => {
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.96 }}
-              className="relative w-full max-w-3xl max-h-[90vh] bg-slate-900 border border-white/10 rounded-2xl flex flex-col overflow-hidden text-slate-100 z-10"
+              className="relative w-full max-w-3xl max-h-[90vh] bg-slate-900 border border-white/10 rounded-md flex flex-col overflow-hidden text-slate-100 z-10"
             >
               {/* Modal Header */}
               <div className="flex items-center justify-between p-4 md:p-6 border-b border-white/5 bg-slate-950/30">
                 <div>
-                  <span className="text-xs font-bold text-indigo-400 uppercase tracking-wider">
+                  <span className="text-xs font-bold text-accent-primary uppercase tracking-wider">
                     {selectedProject.category}
                   </span>
                   <h2 className="text-lg md:text-xl font-bold text-slate-100 mt-1">
@@ -320,7 +320,7 @@ const Projects = ({ selectedProjectId, clearSelectedProject }) => {
                   <h3 className="text-xs uppercase font-bold text-slate-400 tracking-wider mb-2.5">Technologies Used</h3>
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.stack.map(tech => (
-                      <span key={tech} className="text-xs font-semibold bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 px-3 py-1 rounded-lg uppercase tracking-wider">
+                      <span key={tech} className="text-xs font-semibold bg-accent-primary/10 border border-accent-primary/20 text-accent-primary px-3 py-1 rounded-lg uppercase tracking-wider">
                         {tech}
                       </span>
                     ))}
@@ -331,10 +331,10 @@ const Projects = ({ selectedProjectId, clearSelectedProject }) => {
                 {selectedProject.architecture && (
                   <div>
                     <h3 className="text-xs uppercase font-bold text-slate-400 tracking-wider mb-2 flex items-center gap-1.5">
-                      <Cpu size={14} className="text-indigo-400" />
+                      <Cpu size={14} className="text-accent-primary" />
                       System Architecture Flow
                     </h3>
-                    <div className="bg-white/5 border border-white/5 rounded-xl p-4 font-mono text-xs text-slate-300 leading-relaxed">
+                    <div className="bg-white/5 border border-white/5 rounded-md p-4 font-mono text-xs text-slate-300 leading-relaxed">
                       {selectedProject.architecture}
                     </div>
                   </div>
@@ -342,8 +342,8 @@ const Projects = ({ selectedProjectId, clearSelectedProject }) => {
 
                 {/* Features & Key Challenges */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div className="glass-card p-5 rounded-xl border border-white/5">
-                    <h4 className="text-xs uppercase font-bold text-indigo-400 tracking-wider mb-2.5 flex items-center gap-1.5">
+                  <div className="glass-card p-5 rounded-md border border-white/5">
+                    <h4 className="text-xs uppercase font-bold text-accent-primary tracking-wider mb-2.5 flex items-center gap-1.5">
                       <CheckCircle size={14} />
                       Key Features
                     </h4>
@@ -354,8 +354,8 @@ const Projects = ({ selectedProjectId, clearSelectedProject }) => {
                     </ul>
                   </div>
 
-                  <div className="glass-card p-5 rounded-xl border border-white/5">
-                    <h4 className="text-xs uppercase font-bold text-indigo-400 tracking-wider mb-2.5 flex items-center gap-1.5">
+                  <div className="glass-card p-5 rounded-md border border-white/5">
+                    <h4 className="text-xs uppercase font-bold text-accent-primary tracking-wider mb-2.5 flex items-center gap-1.5">
                       <Cpu size={14} />
                       Challenges & Resolution
                     </h4>

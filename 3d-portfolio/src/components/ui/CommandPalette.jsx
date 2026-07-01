@@ -103,7 +103,7 @@ const CommandPalette = ({ isOpen, onClose, changePage, openProjectModal }) => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.97, y: -10 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="relative w-full max-w-xl glass-card rounded-2xl border border-white/10 shadow-2xl overflow-hidden pointer-events-auto bg-slate-900/90 text-slate-100"
+            className="relative w-full max-w-xl glass-card rounded-md border border-white/10 shadow-2xl overflow-hidden pointer-events-auto bg-slate-900/90 text-slate-100"
           >
             {/* Search Bar */}
             <div className="flex items-center gap-3 px-4 py-4 border-b border-white/5 bg-slate-900/40">
@@ -142,10 +142,10 @@ const CommandPalette = ({ isOpen, onClose, changePage, openProjectModal }) => {
                       key={item.id}
                       onClick={() => handleSelect(item)}
                       onMouseEnter={() => setSelectedIndex(index)}
-                      className={`flex items-center justify-between px-3.5 py-3 rounded-xl cursor-pointer transition-all duration-150 ${isSelected ? 'bg-indigo-500/20 text-indigo-400 border border-indigo-500/20' : 'text-slate-300 hover:bg-white/5'}`}
+                      className={`flex items-center justify-between px-3.5 py-3 rounded-md cursor-pointer transition-all duration-150 ${isSelected ? 'bg-accent-primary/20 text-accent-primary border border-accent-primary/20' : 'text-slate-300 hover:bg-white/5'}`}
                     >
                       <div className="flex items-center gap-3">
-                        <Icon size={16} className={isSelected ? 'text-indigo-400' : 'text-slate-400'} />
+                        <Icon size={16} className={isSelected ? 'text-accent-primary' : 'text-slate-400'} />
                         <div className="flex items-baseline gap-2">
                           <span className="text-sm font-sans font-medium">{item.title}</span>
                           <span className="text-xs text-slate-500 font-sans font-normal uppercase tracking-wider">{item.category}</span>
@@ -153,7 +153,7 @@ const CommandPalette = ({ isOpen, onClose, changePage, openProjectModal }) => {
                       </div>
                       
                       {isSelected && (
-                        <span className="text-xs text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded font-medium">
+                        <span className="text-xs text-accent-primary bg-accent-primary/10 px-2 py-0.5 rounded font-medium">
                           Enter ↵
                         </span>
                       )}

@@ -69,7 +69,7 @@ const Contact = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
         {/* Left Side: Modern Form */}
-        <div className="lg:col-span-7 glass-card p-6 md:p-8 rounded-2xl border border-white/5 relative">
+        <div className="lg:col-span-7 glass-card p-6 md:p-8 rounded-md border border-white/5 relative">
           <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -80,7 +80,7 @@ const Contact = () => {
                   id="name" 
                   value={formData.name}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 bg-slate-950/40 border ${errors.name ? 'border-red-500/50' : 'border-white/10'} text-slate-100 rounded-xl focus:outline-none focus:border-indigo-500 transition-all text-sm font-sans`}
+                  className={`w-full px-4 py-3 bg-slate-950/40 border ${errors.name ? 'border-red-500/50' : 'border-white/10'} text-slate-100 rounded-md focus:outline-none focus:border-accent-primary transition-all text-sm font-sans`}
                   placeholder="John Doe"
                 />
                 {errors.name && <span className="text-xs text-red-400 mt-1 ml-1 flex items-center gap-1"><AlertCircle size={12} />{errors.name}</span>}
@@ -93,7 +93,7 @@ const Contact = () => {
                   id="email" 
                   value={formData.email}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 bg-slate-950/40 border ${errors.email ? 'border-red-500/50' : 'border-white/10'} text-slate-100 rounded-xl focus:outline-none focus:border-indigo-500 transition-all text-sm font-sans`}
+                  className={`w-full px-4 py-3 bg-slate-950/40 border ${errors.email ? 'border-red-500/50' : 'border-white/10'} text-slate-100 rounded-md focus:outline-none focus:border-accent-primary transition-all text-sm font-sans`}
                   placeholder="john@example.com"
                 />
                 {errors.email && <span className="text-xs text-red-400 mt-1 ml-1 flex items-center gap-1"><AlertCircle size={12} />{errors.email}</span>}
@@ -107,7 +107,7 @@ const Contact = () => {
                 id="subject" 
                 value={formData.subject}
                 onChange={handleChange}
-                className={`w-full px-4 py-3 bg-slate-950/40 border ${errors.subject ? 'border-red-500/50' : 'border-white/10'} text-slate-100 rounded-xl focus:outline-none focus:border-indigo-500 transition-all text-sm font-sans`}
+                className={`w-full px-4 py-3 bg-slate-950/40 border ${errors.subject ? 'border-red-500/50' : 'border-white/10'} text-slate-100 rounded-md focus:outline-none focus:border-accent-primary transition-all text-sm font-sans`}
                 placeholder="Collaboration opportunity..."
               />
               {errors.subject && <span className="text-xs text-red-400 mt-1 ml-1 flex items-center gap-1"><AlertCircle size={12} />{errors.subject}</span>}
@@ -120,7 +120,7 @@ const Contact = () => {
                 rows="4" 
                 value={formData.message}
                 onChange={handleChange}
-                className={`w-full px-4 py-3 bg-slate-950/40 border ${errors.message ? 'border-red-500/50' : 'border-white/10'} text-slate-100 rounded-xl focus:outline-none focus:border-indigo-500 transition-all resize-none text-sm font-sans`}
+                className={`w-full px-4 py-3 bg-slate-950/40 border ${errors.message ? 'border-red-500/50' : 'border-white/10'} text-slate-100 rounded-md focus:outline-none focus:border-accent-primary transition-all resize-none text-sm font-sans`}
                 placeholder="Hi Yashwanth, I'd like to talk about..."
               ></textarea>
               {errors.message && <span className="text-xs text-red-400 mt-1 ml-1 flex items-center gap-1"><AlertCircle size={12} />{errors.message}</span>}
@@ -129,7 +129,7 @@ const Contact = () => {
             <button 
               type="submit" 
               disabled={isSubmitting}
-              className="mt-2 w-full flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-3 rounded-xl text-sm font-bold shadow-lg shadow-indigo-600/10 hover:shadow-indigo-600/25 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+              className="mt-2 w-full flex items-center justify-center gap-2 bg-accent-primary hover:bg-transparent text-[#0f1210] hover:text-accent-primary border border-accent-primary px-5 py-3 rounded-md text-sm font-bold transition-all duration-500 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
             >
               {isSubmitting ? (
                 <span>Sending Message...</span>
@@ -149,7 +149,7 @@ const Contact = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 10 }}
-                className="absolute inset-x-6 bottom-6 bg-emerald-600 border border-emerald-500/25 p-4 rounded-xl flex items-center gap-3 text-white text-xs font-semibold shadow-lg"
+                className="absolute inset-x-6 bottom-6 bg-emerald-600 border border-emerald-500/25 p-4 rounded-md flex items-center gap-3 text-white text-xs font-semibold shadow-lg"
               >
                 <CheckCircle size={18} />
                 <span>Thank you! Your message has been sent successfully. I will get back to you soon.</span>
@@ -159,15 +159,15 @@ const Contact = () => {
         </div>
 
         {/* Right Side: Location Radar Widget */}
-        <div className="lg:col-span-5 glass-card p-6 md:p-8 rounded-2xl border border-white/5 flex flex-col justify-center items-center relative overflow-hidden select-none">
+        <div className="lg:col-span-5 glass-card p-6 md:p-8 rounded-md border border-white/5 flex flex-col justify-center items-center relative overflow-hidden select-none">
           
           <h3 className="text-sm font-bold text-slate-200 mb-4 z-10 flex items-center gap-2">
-            <MapPin className="text-indigo-400" size={16} />
+            <MapPin className="text-accent-primary" size={16} />
             Location: Chennai, India
           </h3>
 
           {/* Static Radar representation */}
-          <div className="w-full h-[220px] bg-slate-950/40 border border-white/10 rounded-xl relative flex items-center justify-center overflow-hidden z-10">
+          <div className="w-full h-[220px] bg-slate-950/40 border border-white/10 rounded-md relative flex items-center justify-center overflow-hidden z-10">
             <div className="absolute w-[160px] h-[160px] border border-dashed border-slate-800 rounded-full"></div>
             <div className="absolute w-[100px] h-[100px] border border-dashed border-slate-800 rounded-full"></div>
             <div className="absolute w-[50px] h-[50px] border border-dashed border-slate-800 rounded-full"></div>
@@ -184,9 +184,9 @@ const Contact = () => {
             </div>
 
             <div className="relative flex items-center justify-center">
-              <span className="absolute w-8 h-8 bg-indigo-500/10 rounded-full animate-ping"></span>
-              <span className="absolute w-4 h-4 bg-indigo-500/20 rounded-full"></span>
-              <span className="w-3 h-3 bg-indigo-400 border border-slate-900 rounded-full relative z-10 shadow-lg"></span>
+              <span className="absolute w-8 h-8 bg-accent-primary/10 rounded-full animate-ping"></span>
+              <span className="absolute w-4 h-4 bg-accent-primary/20 rounded-full"></span>
+              <span className="w-3 h-3 bg-accent-primary border border-slate-900 rounded-full relative z-10 shadow-lg"></span>
             </div>
           </div>
 
@@ -196,7 +196,7 @@ const Contact = () => {
               href="https://github.com/YASHWANTHTHEKING" 
               target="_blank" 
               rel="noreferrer"
-              className="flex flex-col items-center gap-1 text-xs text-slate-400 hover:text-indigo-400 transition-colors cursor-pointer"
+              className="flex flex-col items-center gap-1 text-xs text-slate-400 hover:text-accent-primary transition-colors cursor-pointer"
             >
               <Github size={18} />
               <span>GitHub</span>
@@ -205,14 +205,14 @@ const Contact = () => {
               href="https://www.linkedin.com/in/yashwanth-nv-78b5502a4/" 
               target="_blank" 
               rel="noreferrer"
-              className="flex flex-col items-center gap-1 text-xs text-slate-400 hover:text-indigo-400 transition-colors cursor-pointer"
+              className="flex flex-col items-center gap-1 text-xs text-slate-400 hover:text-accent-primary transition-colors cursor-pointer"
             >
               <Linkedin size={18} />
               <span>LinkedIn</span>
             </a>
             <a 
               href="mailto:yash123ace@gmail.com" 
-              className="flex flex-col items-center gap-1 text-xs text-slate-400 hover:text-indigo-400 transition-colors cursor-pointer"
+              className="flex flex-col items-center gap-1 text-xs text-slate-400 hover:text-accent-primary transition-colors cursor-pointer"
             >
               <Mail size={18} />
               <span>Email</span>

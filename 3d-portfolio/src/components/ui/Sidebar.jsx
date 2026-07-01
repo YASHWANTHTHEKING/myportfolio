@@ -19,14 +19,14 @@ const Sidebar = ({ currentPage, changePage, openCommandPalette, theme, toggleThe
   return (
     <>
       {/* Desktop Persistent Dock */}
-      <nav className="hidden xl:flex flex-col items-stretch justify-between py-8 px-5 h-[92vh] my-auto ml-6 rounded-3xl glass-card z-50 shrink-0 select-none w-52">
+      <nav className="hidden xl:flex flex-col items-stretch justify-between py-8 px-5 h-[92vh] my-auto ml-6 rounded-md glass-card z-50 shrink-0 select-none w-52">
         
         {/* Brand Logo / Name */}
         <div 
           onClick={() => changePage('home')}
           className="cursor-pointer flex items-center gap-3 px-2 py-1.5"
         >
-          <div className="font-bold text-sm tracking-wider text-slate-100 flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 border border-indigo-500/30">
+          <div className="font-bold text-sm tracking-wider text-slate-100 flex items-center justify-center w-8 h-8 rounded-lg bg-accent-primary/20 border border-accent-primary/30">
             NY
           </div>
           <span className="font-bold text-sm text-[var(--text-primary)]">Yashwanth</span>
@@ -40,22 +40,22 @@ const Sidebar = ({ currentPage, changePage, openCommandPalette, theme, toggleThe
               <button
                 key={id}
                 onClick={() => changePage(id)}
-                className="relative flex items-center gap-3 px-3.5 py-3 rounded-xl transition-all duration-300 pointer-events-auto cursor-pointer"
+                className="relative flex items-center gap-3 px-3.5 py-3 rounded-md transition-all duration-300 pointer-events-auto cursor-pointer"
                 aria-label={label}
               >
                 {isActive && (
                   <motion.div
                     layoutId="activeTabIndicator"
-                    className="absolute inset-0 bg-indigo-500/10 border border-indigo-500/20 rounded-xl"
+                    className="absolute inset-0 bg-accent-primary/10 border border-accent-primary/20 rounded-md"
                     initial={false}
                     transition={{ type: 'spring', stiffness: 350, damping: 25 }}
                   />
                 )}
                 <Icon 
                   size={18} 
-                  className={`relative z-10 transition-colors duration-300 ${isActive ? 'text-indigo-400' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'}`} 
+                  className={`relative z-10 transition-colors duration-300 ${isActive ? 'text-accent-primary' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'}`} 
                 />
-                <span className={`relative z-10 text-sm font-medium transition-colors duration-300 ${isActive ? 'text-indigo-400' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'}`}>
+                <span className={`relative z-10 text-sm font-medium transition-colors duration-300 ${isActive ? 'text-accent-primary' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'}`}>
                   {label}
                 </span>
               </button>
@@ -68,7 +68,7 @@ const Sidebar = ({ currentPage, changePage, openCommandPalette, theme, toggleThe
           {/* Command Palette Button */}
           <button
             onClick={openCommandPalette}
-            className="flex items-center gap-3 px-3.5 py-3 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-white/5 rounded-xl transition-all duration-200 cursor-pointer"
+            className="flex items-center gap-3 px-3.5 py-3 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-white/5 rounded-md transition-all duration-200 cursor-pointer"
             title="Search palette"
           >
             <Terminal size={18} />
@@ -78,7 +78,7 @@ const Sidebar = ({ currentPage, changePage, openCommandPalette, theme, toggleThe
           {/* Dark / Light Toggle */}
           <button
             onClick={toggleTheme}
-            className="flex items-center gap-3 px-3.5 py-3 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-white/5 rounded-xl transition-all duration-200 cursor-pointer"
+            className="flex items-center gap-3 px-3.5 py-3 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-white/5 rounded-md transition-all duration-200 cursor-pointer"
             title="Toggle theme"
           >
             {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
@@ -88,7 +88,7 @@ const Sidebar = ({ currentPage, changePage, openCommandPalette, theme, toggleThe
       </nav>
 
       {/* Mobile / Tablet Floating Header */}
-      <div className="xl:hidden fixed top-4 left-4 right-4 z-50 flex items-center justify-between px-6 py-4 glass-card rounded-2xl border border-white/5 shadow-lg">
+      <div className="xl:hidden fixed top-4 left-4 right-4 z-50 flex items-center justify-between px-6 py-4 glass-card rounded-md border border-white/5 shadow-lg">
         <div 
           onClick={() => changePage('home')}
           className="font-bold text-base text-[var(--text-primary)] cursor-pointer"
@@ -105,7 +105,7 @@ const Sidebar = ({ currentPage, changePage, openCommandPalette, theme, toggleThe
           {/* Mobile menu toggle */}
           <button 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="p-2 text-[var(--text-primary)] bg-indigo-500/10 rounded-lg cursor-pointer"
+            className="p-2 text-[var(--text-primary)] bg-accent-primary/10 rounded-lg cursor-pointer"
           >
             {isMobileMenuOpen ? <X size={16} /> : <Menu size={16} />}
           </button>
@@ -120,7 +120,7 @@ const Sidebar = ({ currentPage, changePage, openCommandPalette, theme, toggleThe
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="xl:hidden fixed inset-x-4 top-20 z-40 p-5 glass-card rounded-2xl flex flex-col gap-3 shadow-2xl"
+            className="xl:hidden fixed inset-x-4 top-20 z-40 p-5 glass-card rounded-md flex flex-col gap-3 shadow-2xl"
           >
             <div className="flex flex-col gap-1">
               {navItems.map(({ id, icon: Icon, label }) => {
@@ -132,7 +132,7 @@ const Sidebar = ({ currentPage, changePage, openCommandPalette, theme, toggleThe
                       changePage(id);
                       setIsMobileMenuOpen(false);
                     }}
-                    className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all cursor-pointer ${isActive ? 'bg-indigo-500/10 text-indigo-400 border border-indigo-500/20' : 'text-[var(--text-secondary)] bg-white/5 hover:bg-white/10'}`}
+                    className={`flex items-center gap-3 px-4 py-3 rounded-md transition-all cursor-pointer ${isActive ? 'bg-accent-primary/10 text-accent-primary border border-accent-primary/20' : 'text-[var(--text-secondary)] bg-white/5 hover:bg-white/10'}`}
                   >
                     <Icon size={16} />
                     <span className="text-sm font-medium">{label}</span>
@@ -146,7 +146,7 @@ const Sidebar = ({ currentPage, changePage, openCommandPalette, theme, toggleThe
                 setIsMobileMenuOpen(false);
                 openCommandPalette();
               }}
-              className="mt-1 flex items-center justify-center gap-2 px-4 py-3 bg-slate-900 border border-white/5 text-indigo-400 font-medium rounded-xl hover:bg-slate-800 transition-all text-sm cursor-pointer"
+              className="mt-1 flex items-center justify-center gap-2 px-4 py-3 bg-slate-900 border border-white/5 text-accent-primary font-medium rounded-md hover:bg-slate-800 transition-all text-sm cursor-pointer"
             >
               <Terminal size={16} />
               Open Command Palette

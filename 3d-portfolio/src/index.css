@@ -9,6 +9,11 @@
   --color-slate-900: var(--bg-secondary);
   --color-slate-950: var(--bg-primary);
   
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-gold: var(--accent-primary);
+  --color-accent-burgundy: var(--accent-secondary);
+  
   --font-sans: var(--font-inter);
   --font-display: var(--font-space);
   --font-serif: var(--font-serif);
