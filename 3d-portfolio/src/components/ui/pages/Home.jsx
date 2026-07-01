@@ -95,7 +95,7 @@ const Home = ({ changePage }) => {
         {/* CTA Buttons (Cobalt Accent & Cream/Limestone borders) */}
         <div className="flex flex-wrap gap-4 mb-10">
           <a
-            href="#"
+            href="https://drive.google.com/uc?export=download&id=1qy9O6yapnNRSYLFImESbc2AN2t6fulo_"
             className="flex items-center gap-2 bg-accent-primary hover:bg-transparent text-text-on-accent hover:text-accent-primary border border-accent-primary px-6 py-3.5 rounded-md text-sm font-semibold tracking-wider transition-all duration-500 group cursor-pointer"
           >
             <span>DOWNLOAD RESUME</span>
