@@ -234,16 +234,26 @@ const About = () => {
       </p>
 
       {/* Tabs list */}
-      <div className="flex border-b border-white/10 mb-8 overflow-x-auto no-scrollbar gap-1.5">
-        {tabs.map(tab => (
-          <button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
-            className={`px-4 py-2.5 text-sm font-semibold tracking-wide border-b-2 transition-all cursor-pointer whitespace-nowrap ${activeTab === tab.id ? 'border-accent-primary text-accent-primary' : 'border-transparent text-slate-400 hover:text-slate-200'}`}
-          >
-            {tab.label}
-          </button>
-        ))}
+      <div className="flex border-b border-white/10 mb-8 overflow-x-auto no-scrollbar gap-1.5 relative">
+        {tabs.map(tab => {
+          const isActive = activeTab === tab.id;
+          return (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`relative px-4 py-2.5 text-sm font-semibold tracking-wide transition-all duration-300 cursor-pointer whitespace-nowrap ${isActive ? 'text-accent-primary font-medium' : 'text-slate-400 hover:text-slate-200'}`}
+            >
+              <span className="relative z-10">{tab.label}</span>
+              {isActive && (
+                <motion.div
+                  layoutId="activeAboutTab"
+                  className="absolute bottom-0 inset-x-0 h-[2px] bg-accent-primary"
+                  transition={{ type: 'spring', stiffness: 300, damping: 28 }}
+                />
+              )}
+            </button>
+          );
+        })}
       </div>
 
       {/* Tab Contents */}
@@ -261,8 +271,11 @@ const About = () => {
               {/* Left Column: Brief details */}
               <div className="lg:col-span-4 flex flex-col items-center glass-card p-6 rounded-md">
                 <div className="w-32 h-32 md:w-36 md:h-36 bg-slate-950 border border-white/10 rounded-md flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-accent-primary/10 to-transparent"></div>
-                  <Brain size={56} className="text-accent-primary relative z-10" />
+                  <img 
+                    src="/Yashwanth.jpg" 
+                    alt="N.V. Yashwanth" 
+                    className="w-full h-full object-cover relative z-10" 
+                  />
                 </div>
 
                 <div className="mt-5 text-center">

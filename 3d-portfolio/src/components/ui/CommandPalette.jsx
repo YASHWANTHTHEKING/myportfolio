@@ -103,7 +103,7 @@ const CommandPalette = ({ isOpen, onClose, changePage, openProjectModal }) => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.97, y: -10 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="relative w-full max-w-xl glass-card rounded-md border border-white/10 shadow-2xl overflow-hidden pointer-events-auto bg-slate-900/90 text-slate-100"
+            className="relative w-full max-w-xl glass-card rounded-md border border-accent-primary/25 shadow-2xl overflow-hidden pointer-events-auto bg-[var(--bg-secondary)]/95 text-slate-100"
           >
             {/* Search Bar */}
             <div className="flex items-center gap-3 px-4 py-4 border-b border-white/5 bg-slate-900/40">

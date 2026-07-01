@@ -155,18 +155,32 @@ const Projects = ({ selectedProjectId, clearSelectedProject }) => {
       </div>
 
       {/* Tab Switcher */}
-      <div className="flex border-b border-white/10 mb-8 gap-1.5">
+      <div className="flex border-b border-white/10 mb-8 gap-1.5 relative">
         <button
           onClick={() => setActiveTab('projects')}
-          className={`px-4 py-2.5 text-sm font-semibold tracking-wide border-b-2 transition-all cursor-pointer ${activeTab === 'projects' ? 'border-accent-primary text-accent-primary' : 'border-transparent text-slate-400 hover:text-slate-200'}`}
+          className={`relative px-4 py-2.5 text-sm font-semibold tracking-wide transition-all duration-300 cursor-pointer whitespace-nowrap ${activeTab === 'projects' ? 'text-accent-primary font-medium' : 'text-slate-400 hover:text-slate-200'}`}
         >
-          Featured Projects ({projects.length})
+          <span className="relative z-10">Featured Projects ({projects.length})</span>
+          {activeTab === 'projects' && (
+            <motion.div
+              layoutId="activeProjectsTab"
+              className="absolute bottom-0 inset-x-0 h-[2px] bg-accent-primary"
+              transition={{ type: 'spring', stiffness: 300, damping: 28 }}
+            />
+          )}
         </button>
         <button
           onClick={() => setActiveTab('research')}
-          className={`px-4 py-2.5 text-sm font-semibold tracking-wide border-b-2 transition-all cursor-pointer ${activeTab === 'research' ? 'border-accent-primary text-accent-primary' : 'border-transparent text-slate-400 hover:text-slate-200'}`}
+          className={`relative px-4 py-2.5 text-sm font-semibold tracking-wide transition-all duration-300 cursor-pointer whitespace-nowrap ${activeTab === 'research' ? 'text-accent-primary font-medium' : 'text-slate-400 hover:text-slate-200'}`}
         >
-          Academic Research ({researchPapers.length})
+          <span className="relative z-10">Academic Research ({researchPapers.length})</span>
+          {activeTab === 'research' && (
+            <motion.div
+              layoutId="activeProjectsTab"
+              className="absolute bottom-0 inset-x-0 h-[2px] bg-accent-primary"
+              transition={{ type: 'spring', stiffness: 300, damping: 28 }}
+            />
+          )}
         </button>
       </div>
 
