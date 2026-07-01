@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+@theme {
+  --color-slate-100: var(--text-primary);
+  --color-slate-200: var(--text-primary);
+  --color-slate-300: var(--text-secondary);
+  --color-slate-400: var(--text-secondary);
+  --color-slate-500: var(--text-secondary);
+  --color-slate-900: var(--bg-secondary);
+  --color-slate-950: var(--bg-primary);
+}
+
 :root {
   --bg-primary: #f8fafc;
   --bg-secondary: #ffffff;
@@ -7,10 +17,10 @@
   --text-secondary: #475569;
   --accent-primary: #6366f1;
   --accent-secondary: #8b5cf6;
-  --card-bg: rgba(255, 255, 255, 0.6);
-  --card-border: rgba(255, 255, 255, 0.4);
-  --glass-glow: rgba(99, 102, 241, 0.1);
-  --neon-shadow: 0 8px 32px 0 rgba(99, 102, 241, 0.1);
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --card-border: rgba(15, 23, 42, 0.08);
+  --glass-glow: rgba(99, 102, 241, 0.05);
+  --neon-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.05);
   --accent-cyan: #06b6d4;
   --accent-purple: #a855f7;
   --accent-blue: #3b82f6;

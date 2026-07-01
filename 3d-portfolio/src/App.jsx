@@ -20,6 +20,29 @@ function App() {
   const [isZoomedToLaptop, setIsZoomedToLaptop] = useState(false);
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
   const [selectedProjectId, setSelectedProjectId] = useState(null);
+  const [theme, setTheme] = useState('dark');
+
+  // Theme management
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(savedTheme);
+    if (savedTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(nextTheme);
+    localStorage.setItem('theme', nextTheme);
+    if (nextTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  };
 
   // Mouse coords for spotlight effect
   useEffect(() => {
@@ -75,7 +98,7 @@ function App() {
   };
 
   return (
-    <div className="w-screen h-screen flex flex-col xl:flex-row bg-[#050816] relative text-slate-100 overflow-hidden font-sans select-none">
+    <div className="w-screen h-screen flex flex-col xl:flex-row bg-[var(--bg-primary)] relative text-[var(--text-primary)] transition-colors duration-300 overflow-hidden font-sans select-none">
       
       {/* Background Aurora Glow Blobs */}
       <div className="bg-aurora bg-aurora-1"></div>
@@ -95,6 +118,8 @@ function App() {
         currentPage={currentPage} 
         changePage={changePage} 
         openCommandPalette={() => setIsCommandPaletteOpen(true)}
+        theme={theme}
+        toggleTheme={toggleTheme}
       />
 
       {/* Main viewport frame */}
@@ -107,6 +132,7 @@ function App() {
               <DeskScene 
                 isZoomedToLaptop={isZoomedToLaptop} 
                 onLaptopClick={handleLaptopClick} 
+                theme={theme}
               />
             </Suspense>
           </div>

@@ -184,30 +184,33 @@ const FloatingAssets = () => {
   );
 };
 
-const DeskScene = ({ isZoomedToLaptop, onLaptopClick }) => {
+const DeskScene = ({ isZoomedToLaptop, onLaptopClick, theme }) => {
+  const isDark = theme === 'dark';
   return (
     <Canvas shadows className="w-full h-full">
-      <color attach="background" args={['#050816']} />
+      <color attach="background" args={[isDark ? '#050816' : '#f8fafc']} />
       
       <PerspectiveCamera makeDefault position={[-1.6, 2.8, 5.8]} fov={50} />
       <CameraController isZoomedToLaptop={isZoomedToLaptop} />
 
       {/* Environment & Lights */}
-      <ambientLight intensity={0.2} />
+      <ambientLight intensity={isDark ? 0.25 : 0.75} />
       <directionalLight 
         position={[5, 10, 5]} 
-        intensity={0.6} 
+        intensity={isDark ? 0.6 : 1.2} 
         castShadow 
         shadow-mapSize={[1024, 1024]}
         shadow-bias={-0.0001}
       />
       
       {/* Premium Neon Lights */}
-      <pointLight position={[-3, 2, -1]} color="#8b5cf6" intensity={2.5} distance={6} />
-      <pointLight position={[3, 2, -1]} color="#06b6d4" intensity={2.5} distance={6} />
-      <pointLight position={[0, 0.8, -0.5]} color="#6366f1" intensity={3.0} distance={4} />
+      <pointLight position={[-3, 2, -1]} color="#8b5cf6" intensity={isDark ? 2.5 : 1.5} distance={6} />
+      <pointLight position={[3, 2, -1]} color="#06b6d4" intensity={isDark ? 2.5 : 1.5} distance={6} />
+      <pointLight position={[0, 0.8, -0.5]} color="#6366f1" intensity={isDark ? 3.0 : 1.8} distance={4} />
 
-      <Stars radius={100} depth={50} count={3000} factor={4} saturation={0.5} fade speed={1.5} />
+      {isDark && (
+        <Stars radius={100} depth={50} count={2000} factor={4} saturation={0.5} fade speed={1.5} />
+      )}
 
       <group position={[0, -0.2, 0]}>
         <Laptop onLaptopClick={onLaptopClick} isZoomed={isZoomedToLaptop} />

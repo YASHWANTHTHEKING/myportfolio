@@ -6,35 +6,12 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const Sidebar = ({ currentPage, changePage, openCommandPalette }) => {
-  const [theme, setTheme] = useState('dark');
+const Sidebar = ({ currentPage, changePage, openCommandPalette, theme, toggleTheme }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const audioCtxRef = useRef(null);
   const oscillatorRef = useRef(null);
   const gainNodeRef = useRef(null);
-
-  // Theme management
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    setTheme(savedTheme);
-    if (savedTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    const nextTheme = theme === 'dark' ? 'light' : 'dark';
-    setTheme(nextTheme);
-    localStorage.setItem('theme', nextTheme);
-    if (nextTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  };
 
   // Synthwave Web Audio Loop (completely self-contained!)
   const startMusic = () => {
