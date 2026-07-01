@@ -64,56 +64,56 @@ const Home = ({ changePage }) => {
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -15 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
       className="relative min-h-[80vh] flex flex-col justify-center px-4 md:px-8 py-8"
     >
       <div className="max-w-2xl z-10">
         
-        {/* Large Greeting */}
+        {/* Large Greeting (Engraved-plaque spacing feel) */}
         <div>
-          <span className="text-indigo-400 font-bold uppercase tracking-wider text-xs md:text-sm block mb-3">
+          <span className="text-[var(--accent-primary)] font-sans font-bold uppercase tracking-[0.25em] text-xs md:text-sm block mb-3">
             HELLO, I'M
           </span>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-100 leading-tight mb-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-light text-[var(--text-primary)] leading-tight mb-4">
             N.V. Yashwanth
           </h1>
         </div>
 
-        {/* Typing Subtitle (overflow-visible to prevent underline or font descender clipping) */}
+        {/* Typing Subtitle */}
         <div className="h-12 md:h-14 flex items-center mb-6 overflow-visible">
-          <span className="text-lg md:text-2xl font-semibold text-slate-300 leading-snug">
-            A passionate <span className="text-indigo-400 font-bold underline decoration-indigo-500/40">{displayedText}</span>
+          <span className="text-lg md:text-2xl font-serif font-light text-[var(--text-secondary)] leading-snug">
+            A passionate <span className="text-[var(--accent-primary)] font-medium underline decoration-[var(--accent-primary)]/30">{displayedText}</span>
           </span>
-          <span className="w-1 h-5 md:h-7 bg-indigo-400 ml-1.5 animate-pulse shrink-0"></span>
+          <span className="w-0.5 h-5 md:h-7 bg-[var(--accent-primary)] ml-1.5 animate-pulse shrink-0"></span>
         </div>
 
         {/* Description */}
-        <p className="text-slate-400 text-base md:text-lg leading-relaxed mb-8 max-w-xl">
+        <p className="text-[var(--text-secondary)] text-base md:text-lg leading-relaxed mb-8 max-w-xl font-sans font-medium">
           Passionate Computer Science Engineering student building intelligent applications using Artificial Intelligence, Machine Learning, Computer Vision, Python, Java, and modern web technologies.
         </p>
 
-        {/* CTA Buttons */}
+        {/* CTA Buttons (Sharp Corners, Muted Metals look) */}
         <div className="flex flex-wrap gap-4 mb-10">
           <a
             href="#"
-            className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-3.5 rounded-xl text-sm font-semibold shadow-lg shadow-indigo-600/10 hover:shadow-indigo-600/25 transition-all duration-200 group cursor-pointer"
+            className="flex items-center gap-2 bg-[var(--accent-primary)] hover:bg-transparent text-[#0f1210] hover:text-[var(--accent-primary)] border border-[var(--accent-primary)] px-6 py-3.5 rounded-md text-sm font-semibold tracking-wider transition-all duration-500 group cursor-pointer"
           >
-            <span>Download Resume</span>
-            <FileText size={16} className="group-hover:scale-105 transition-all" />
+            <span>DOWNLOAD RESUME</span>
+            <FileText size={16} className="group-hover:scale-105 transition-all duration-500" />
           </a>
           <button 
             onClick={() => changePage('projects')}
-            className="flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-slate-100 border border-white/10 px-6 py-3.5 rounded-xl text-sm font-semibold hover:border-white/20 transition-all duration-200 group cursor-pointer"
+            className="flex items-center gap-2 bg-transparent hover:bg-[var(--accent-primary)] text-[var(--text-primary)] hover:text-[#0f1210] border border-[var(--card-border)] hover:border-[var(--accent-primary)] px-6 py-3.5 rounded-md text-sm font-semibold tracking-wider transition-all duration-500 group cursor-pointer"
           >
-            <span>View Projects</span>
-            <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-all" />
+            <span>VIEW PROJECTS</span>
+            <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-all duration-500" />
           </button>
         </div>
 
         {/* Social Nodes & Location */}
-        <div className="flex flex-wrap items-center gap-5 text-slate-400 text-xs font-semibold">
-          <div className="flex items-center gap-2 bg-white/5 border border-white/5 px-3 py-2 rounded-xl">
-            <MapPin size={14} className="text-indigo-400" />
+        <div className="flex flex-wrap items-center gap-5 text-[var(--text-secondary)] text-xs font-semibold uppercase tracking-wider">
+          <div className="flex items-center gap-2 bg-white/5 border border-white/5 px-3 py-2 rounded-md">
+            <MapPin size={14} className="text-[var(--accent-primary)]" />
             <span>Chennai, India</span>
           </div>
 
@@ -122,7 +122,7 @@ const Home = ({ changePage }) => {
               href="https://github.com/YASHWANTHTHEKING" 
               target="_blank" 
               rel="noreferrer" 
-              className="p-2.5 bg-white/5 hover:bg-indigo-500/10 rounded-xl hover:text-indigo-400 border border-white/5 transition-all cursor-pointer"
+              className="p-2.5 bg-white/5 hover:bg-[var(--accent-primary)]/10 rounded-md hover:text-[var(--accent-primary)] border border-white/5 hover:border-[var(--accent-primary)]/20 transition-all duration-500 cursor-pointer"
               title="GitHub"
             >
               <Github size={18} />
@@ -131,14 +131,14 @@ const Home = ({ changePage }) => {
               href="https://www.linkedin.com/in/yashwanth-nv-78b5502a4/" 
               target="_blank" 
               rel="noreferrer" 
-              className="p-2.5 bg-white/5 hover:bg-indigo-500/10 rounded-xl hover:text-indigo-400 border border-white/5 transition-all cursor-pointer"
+              className="p-2.5 bg-white/5 hover:bg-[var(--accent-primary)]/10 rounded-md hover:text-[var(--accent-primary)] border border-white/5 hover:border-[var(--accent-primary)]/20 transition-all duration-500 cursor-pointer"
               title="LinkedIn"
             >
               <Linkedin size={18} />
             </a>
             <a 
               href="mailto:yash123ace@gmail.com" 
-              className="p-2.5 bg-white/5 hover:bg-indigo-500/10 rounded-xl hover:text-indigo-400 border border-white/5 transition-all cursor-pointer"
+              className="p-2.5 bg-white/5 hover:bg-[var(--accent-primary)]/10 rounded-md hover:text-[var(--accent-primary)] border border-white/5 hover:border-[var(--accent-primary)]/20 transition-all duration-500 cursor-pointer"
               title="Email"
             >
               <Mail size={18} />
