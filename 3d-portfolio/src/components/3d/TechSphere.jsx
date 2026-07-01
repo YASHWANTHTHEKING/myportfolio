@@ -1,4 +1,4 @@
-import React, { useRef, useState, useMemo } from 'react';
+import React, { useRef, useState, useMemo, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Text, OrbitControls, Float } from '@react-three/drei';
 import * as THREE from 'three';
@@ -47,7 +47,6 @@ function SkillWord({ word, position, ...props }) {
       anchorY="middle"
       onPointerOver={handlePointerOver}
       onPointerOut={handlePointerOut}
-      font="https://fonts.gstatic.com/s/spacegrotesk/v15/V8mQoQDjQSkFtoMM3T6r8E79F215.woff" // Space Grotesk font url
       {...props}
     >
       {word}
@@ -103,12 +102,14 @@ function Cloud({ count = 4, radius = 3 }) {
 
 const TechSphere = () => {
   return (
-    <div className="w-full h-[320px] md:h-[400px] relative">
+    <div className="w-full h-[320px] md:h-[400px] relative z-10">
       <Canvas camera={{ position: [0, 0, 5.5], fov: 60 }} dpr={[1, 2]}>
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} intensity={1.5} />
         
-        <Cloud radius={2.2} />
+        <Suspense fallback={null}>
+          <Cloud radius={2.2} />
+        </Suspense>
         
         <OrbitControls 
           enableZoom={false} 
