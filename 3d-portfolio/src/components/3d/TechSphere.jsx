@@ -4,10 +4,13 @@ import { Text, OrbitControls, Float } from '@react-three/drei';
 import * as THREE from 'three';
 
 const skills = [
-  'Python', 'PyTorch', 'TensorFlow', 'OpenCV', 'React', 'Node.js',
-  'Express', 'JavaScript', 'TypeScript', 'HTML/CSS', 'MySQL', 'MongoDB',
-  'Neo4j', 'Docker', 'Linux', 'Git', 'Postman', 'AWS', 'Firebase',
-  'C++', 'Java', 'C', 'Sci-kit Learn', 'Pandas', 'NumPy'
+  'Python', 'PyTorch', 'TensorFlow', 'OpenCV', 'LangChain', 'LangGraph',
+  'RAG', 'Vector Embeddings', 'AI Agents', 'OpenAI API', 'Gemini API',
+  'Llama', 'Mistral', 'Neo4j', 'MongoDB', 'PostgreSQL', 'Pinecone',
+  'ChromaDB', 'FAISS', 'Docker', 'Kubernetes', 'Git', 'GitHub', 'AWS',
+  'Google Cloud', 'React', 'Next.js', 'Tailwind CSS', 'Three.js', 'Framer Motion',
+  'Node.js', 'FastAPI', 'Spring Boot', 'YOLOv8', 'Whisper', 'Transformers',
+  'Computer Vision', 'Data Science', 'Generative AI', 'Deep Learning', 'C++', 'Java'
 ];
 
 function SkillWord({ word, position, ...props }) {

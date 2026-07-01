@@ -1,50 +1,71 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import TechSphere from '../../3d/TechSphere';
-import { Terminal, Brain, Globe, Database, Cpu, Cloud } from 'lucide-react';
+import { 
+  Terminal, Brain, Globe, Database, Cpu, Cloud, 
+  Sparkles, Server, BarChart2, Eye, MessageSquare 
+} from 'lucide-react';
 
 const skillsData = [
   {
-    category: 'Programming',
-    icon: Terminal,
-    color: 'from-blue-500/20 to-indigo-500/20',
-    borderColor: 'group-hover:border-blue-500/40',
-    items: ['Python', 'Java', 'C', 'C++']
-  },
-  {
-    category: 'AI / ML',
+    category: 'AI & Machine Learning',
     icon: Brain,
     color: 'from-purple-500/20 to-pink-500/20',
-    borderColor: 'group-hover:border-purple-500/40',
-    items: ['TensorFlow', 'PyTorch', 'OpenCV', 'Scikit-learn', 'Pandas', 'NumPy']
+    items: ['Python', 'NumPy', 'Pandas', 'Matplotlib', 'Scikit-learn', 'TensorFlow', 'PyTorch', 'Keras', 'OpenCV', 'MediaPipe', 'Hugging Face', 'LangChain', 'LangGraph', 'Ollama', 'XGBoost', 'LightGBM', 'YOLOv8', 'Detectron2', 'RCNN', 'CNN', 'LSTM', 'RNN']
   },
   {
-    category: 'Web Development',
-    icon: Globe,
-    color: 'from-cyan-500/20 to-teal-500/20',
-    borderColor: 'group-hover:border-cyan-500/40',
-    items: ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'Express']
+    category: 'Generative AI',
+    icon: Sparkles,
+    color: 'from-amber-500/20 to-orange-500/20',
+    items: ['OpenAI API', 'Gemini API', 'Claude API', 'Llama', 'Mistral', 'Prompt Engineering', 'RAG', 'Vector Embeddings', 'Fine-tuning', 'Function Calling', 'AI Agents', 'Multi-Agent Systems']
   },
   {
-    category: 'Database Systems',
+    category: 'Databases',
     icon: Database,
     color: 'from-emerald-500/20 to-green-500/20',
-    borderColor: 'group-hover:border-emerald-500/40',
-    items: ['MySQL', 'MongoDB', 'Neo4j']
+    items: ['MySQL', 'PostgreSQL', 'SQLite', 'MongoDB', 'Redis', 'Neo4j', 'Pinecone', 'ChromaDB', 'FAISS', 'Weaviate']
   },
   {
-    category: 'Tools & Workflow',
-    icon: Cpu,
-    color: 'from-orange-500/20 to-red-500/20',
-    borderColor: 'group-hover:border-orange-500/40',
-    items: ['Git', 'GitHub', 'VS Code', 'Docker', 'Linux', 'Postman']
+    category: 'Programming Languages',
+    icon: Terminal,
+    color: 'from-blue-500/20 to-indigo-500/20',
+    items: ['Python', 'Java', 'C', 'C++', 'JavaScript', 'TypeScript', 'SQL', 'HTML5', 'CSS3']
   },
   {
-    category: 'Cloud Services',
+    category: 'Frontend Development',
+    icon: Globe,
+    color: 'from-cyan-500/20 to-teal-500/20',
+    items: ['React', 'Next.js', 'Tailwind CSS', 'Bootstrap', 'Material UI', 'Three.js', 'Framer Motion', 'GSAP', 'Vite', 'Redux']
+  },
+  {
+    category: 'Backend Development',
+    icon: Server,
+    color: 'from-red-500/20 to-orange-500/20',
+    items: ['Node.js', 'Express.js', 'FastAPI', 'Flask', 'Django', 'Spring Boot', 'REST API', 'GraphQL', 'JWT Auth', 'WebSockets']
+  },
+  {
+    category: 'Cloud & DevOps',
     icon: Cloud,
     color: 'from-indigo-500/20 to-cyan-500/20',
-    borderColor: 'group-hover:border-indigo-500/40',
-    items: ['Firebase', 'AWS Basics']
+    items: ['Git', 'GitHub', 'Docker', 'Kubernetes', 'AWS', 'Azure', 'Google Cloud', 'Firebase', 'Supabase', 'Vercel', 'Netlify', 'CI/CD', 'GitHub Actions']
+  },
+  {
+    category: 'Data Science',
+    icon: BarChart2,
+    color: 'from-yellow-500/20 to-amber-500/20',
+    items: ['Data Cleaning', 'Feature Engineering', 'Data Visualization', 'Exploratory Data Analysis', 'Statistics', 'ML Pipelines', 'Model Evaluation', 'Hyperparameter Tuning']
+  },
+  {
+    category: 'Computer Vision',
+    icon: Eye,
+    color: 'from-pink-500/20 to-rose-500/20',
+    items: ['OpenCV', 'YOLO', 'RCNN', 'MediaPipe', 'Face Recognition', 'OCR', 'Object Detection', 'Image Segmentation', 'Pose Estimation']
+  },
+  {
+    category: 'Speech & NLP',
+    icon: MessageSquare,
+    color: 'from-violet-500/20 to-purple-500/20',
+    items: ['Speech Recognition', 'Whisper', 'NLTK', 'spaCy', 'Hugging Face', 'Transformers', 'BERT', 'GPT', 'Text Classification', 'Sentiment Analysis']
   }
 ];
 
