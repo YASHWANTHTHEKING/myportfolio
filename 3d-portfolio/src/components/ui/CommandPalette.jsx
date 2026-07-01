@@ -4,15 +4,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const items = [
   { id: 'home', title: 'Home Page', category: 'Navigation', icon: Terminal, action: 'navigate' },
-  { id: 'about', title: 'About N.V. Yashwanth', category: 'Navigation', icon: FileText, action: 'navigate' },
-  { id: 'skills', title: 'Technical Skills & 3D Sphere', category: 'Navigation', icon: Sparkles, action: 'navigate' },
-  { id: 'experience', title: 'Education & Career Timeline', category: 'Navigation', icon: FileText, action: 'navigate' },
-  { id: 'projects', title: 'Featured Portfolio Projects', category: 'Navigation', icon: Laptop, action: 'navigate' },
-  { id: 'stats', title: 'Developer & Coding Profiles', category: 'Navigation', icon: Sparkles, action: 'navigate' },
-  { id: 'certifications', title: 'Professional Certifications', category: 'Navigation', icon: FileText, action: 'navigate' },
-  { id: 'research', title: 'Academic Research Papers', category: 'Navigation', icon: FileText, action: 'navigate' },
+  { id: 'about', title: 'About & Professional Bio', category: 'Navigation', icon: FileText, action: 'navigate' },
+  { id: 'projects', title: 'Featured Projects & Research', category: 'Navigation', icon: Laptop, action: 'navigate' },
   { id: 'blog', title: 'Latest Technical Blogs', category: 'Navigation', icon: FileText, action: 'navigate' },
   { id: 'contact', title: 'Get In Touch', category: 'Navigation', icon: ArrowRight, action: 'navigate' },
+  
+  // Specific sections mapped to parent pages
+  { id: 'about', title: 'Technical Skills & Proficiencies', category: 'Skills', icon: Sparkles, action: 'navigate' },
+  { id: 'about', title: 'Education & Career Timeline', category: 'Experience', icon: FileText, action: 'navigate' },
+  { id: 'about', title: 'Professional Certifications', category: 'Certificates', icon: FileText, action: 'navigate' },
+  { id: 'projects', title: 'Academic Research Papers', category: 'Research', icon: FileText, action: 'navigate' },
   
   // Specific project direct navigation
   { id: 'project-music', title: 'Mood-Based Music Recommendation', category: 'Projects', icon: Laptop, action: 'project' },
@@ -35,7 +36,7 @@ const CommandPalette = ({ isOpen, onClose, changePage, openProjectModal }) => {
     }
   }, [isOpen]);
 
-  // Handle global keybindings (Escape, ArrowUp, ArrowDown, Enter)
+  // Handle global keybindings
   useEffect(() => {
     if (!isOpen) return;
 
@@ -71,7 +72,6 @@ const CommandPalette = ({ isOpen, onClose, changePage, openProjectModal }) => {
     } else if (item.action === 'project') {
       changePage('projects');
       if (openProjectModal) {
-        // Map project slug to index or ID
         const projectMap = {
           'project-music': 1,
           'project-emotion': 2,
@@ -117,11 +117,11 @@ const CommandPalette = ({ isOpen, onClose, changePage, openProjectModal }) => {
                   setSearch(e.target.value);
                   setSelectedIndex(0);
                 }}
-                className="w-full bg-transparent border-none text-slate-100 placeholder-slate-500 focus:outline-none text-base"
+                className="w-full bg-transparent border-none text-slate-100 placeholder-slate-500 focus:outline-none text-base font-sans"
               />
               <button 
                 onClick={onClose}
-                className="p-1 hover:bg-white/5 rounded text-slate-400 hover:text-slate-100 transition-all"
+                className="p-1 hover:bg-white/5 rounded text-slate-400 hover:text-slate-100 transition-all cursor-pointer"
               >
                 <X size={16} />
               </button>
@@ -130,7 +130,7 @@ const CommandPalette = ({ isOpen, onClose, changePage, openProjectModal }) => {
             {/* List area */}
             <div className="max-h-[350px] overflow-y-auto p-2 custom-scrollbar">
               {filtered.length === 0 ? (
-                <div className="py-12 text-center text-slate-500 text-sm">
+                <div className="py-12 text-center text-slate-500 text-sm font-sans font-medium">
                   No commands found matching "{search}"
                 </div>
               ) : (
@@ -146,14 +146,14 @@ const CommandPalette = ({ isOpen, onClose, changePage, openProjectModal }) => {
                     >
                       <div className="flex items-center gap-3">
                         <Icon size={16} className={isSelected ? 'text-indigo-400' : 'text-slate-400'} />
-                        <div>
-                          <span className="text-sm font-medium">{item.title}</span>
-                          <span className="ml-2 text-[10px] text-slate-500 font-normal uppercase tracking-wider">{item.category}</span>
+                        <div className="flex items-baseline gap-2">
+                          <span className="text-sm font-sans font-medium">{item.title}</span>
+                          <span className="text-xs text-slate-500 font-sans font-normal uppercase tracking-wider">{item.category}</span>
                         </div>
                       </div>
                       
                       {isSelected && (
-                        <span className="text-[10px] text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded font-medium">
+                        <span className="text-xs text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded font-medium">
                           Enter ↵
                         </span>
                       )}
@@ -164,7 +164,7 @@ const CommandPalette = ({ isOpen, onClose, changePage, openProjectModal }) => {
             </div>
 
             {/* Footer tips */}
-            <div className="px-4 py-2.5 bg-slate-950/40 border-t border-white/5 flex items-center justify-between text-[10px] text-slate-500 font-medium select-none">
+            <div className="px-4 py-2.5 bg-slate-950/40 border-t border-white/5 flex items-center justify-between text-xs text-slate-500 font-sans font-medium select-none">
               <div className="flex items-center gap-2">
                 <span>↑↓ Navigate</span>
                 <span>•</span>

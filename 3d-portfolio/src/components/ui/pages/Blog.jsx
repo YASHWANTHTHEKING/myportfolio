@@ -67,13 +67,13 @@ By ensuring relationships have explicit directions, the graph engine skips scann
     category: 'Deep Learning',
     date: 'January 15, 2025',
     readTime: '10 min read',
-    summary: 'How to convert raw WAV files into Mel Spectrogram images and feed them into a 2D CNN model for vocal sentiment classification.',
+    summary: 'How to convert Mel WAV files into Mel Spectrogram images and feed them into a 2D CNN model for vocal sentiment classification.',
     content: `## Audio CNN Classification Pipeline
 
 Raw audio waveform files are complex and non-stationary. By computing short-time Fourier transforms, we convert vocal patterns into images.
 
 ### Spectrogram Feature Processing with Librosa
-We load the waveforms and calculate MFCC representations:
+We load the waveforms and calculate Mel representation features:
 
 \`\`\`python
 import librosa
@@ -107,41 +107,41 @@ const Blog = () => {
 
   return (
     <motion.div 
-      initial={{ opacity: 0, x: -20 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: -20 }}
-      transition={{ duration: 0.8, ease: 'easeOut' }}
-      className="max-w-4xl mt-12 xl:mt-24 ml-4 xl:ml-12 pointer-events-auto p-4"
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -15 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+      className="max-w-4xl mx-auto px-4 md:px-8 py-6 text-slate-100"
     >
       <AnimatePresence mode="wait">
         {!selectedArticle ? (
           // 1. Article List view
           <motion.div 
             key="list"
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
+            exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
             className="space-y-6"
           >
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-slate-100 mb-2 tracking-tight">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-100 mb-2 tracking-tight">
                 Latest Articles
               </h2>
-              <p className="text-slate-400 text-sm md:text-base max-w-xl">
+              <p className="text-slate-400 text-sm max-w-xl">
                 Sharing my notes, tech reviews, and computer science engineering insights.
               </p>
             </div>
 
             {/* Filter controls */}
-            <div className="flex flex-col md:flex-row gap-4 justify-between items-start md:items-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center">
               {/* Categories */}
               <div className="flex flex-wrap gap-2">
                 {categories.map(cat => (
                   <button
                     key={cat}
                     onClick={() => setSelectedCategory(cat)}
-                    className={`text-xs px-3.5 py-1.5 rounded-xl border transition-all font-semibold uppercase tracking-wider ${selectedCategory === cat ? 'bg-indigo-600 border-indigo-500 text-white' : 'bg-white/5 border-white/5 text-slate-400 hover:text-slate-200'}`}
+                    className={`text-xs px-3.5 py-1.5 rounded-xl border transition-all font-semibold uppercase tracking-wider cursor-pointer ${selectedCategory === cat ? 'bg-indigo-600 border-indigo-500 text-white' : 'bg-white/5 border-white/5 text-slate-400 hover:text-slate-200'}`}
                   >
                     {cat}
                   </button>
@@ -149,14 +149,14 @@ const Blog = () => {
               </div>
 
               {/* Search Box */}
-              <div className="flex items-center gap-2 bg-white/5 border border-white/5 px-3 py-2 rounded-xl w-full md:w-64">
-                <Search size={16} className="text-slate-500" />
+              <div className="flex items-center gap-2 bg-white/5 border border-white/5 px-3 py-2 rounded-xl w-full sm:w-64">
+                <Search size={14} className="text-slate-400" />
                 <input 
                   type="text" 
                   placeholder="Search articles..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  className="bg-transparent border-none text-xs text-slate-100 placeholder-slate-500 focus:outline-none w-full"
+                  className="bg-transparent border-none text-xs text-slate-100 placeholder-slate-400 focus:outline-none w-full font-sans"
                 />
               </div>
             </div>
@@ -164,19 +164,19 @@ const Blog = () => {
             {/* List */}
             <div className="space-y-4">
               {filteredArticles.length === 0 ? (
-                <div className="text-center py-16 text-slate-500 font-semibold">
+                <div className="text-center py-16 text-slate-400 font-semibold text-sm">
                   No articles found matching filters.
                 </div>
               ) : (
-                filteredArticles.map((art, idx) => (
-                  <motion.div
+                filteredArticles.map((art) => (
+                  <div
                     key={art.id}
                     onClick={() => setSelectedArticle(art)}
-                    className="glass-card p-6 rounded-3xl border border-white/5 cursor-pointer hover:border-indigo-500/20 transition-all duration-300 group flex flex-col justify-between"
+                    className="glass-card p-6 rounded-2xl border border-white/5 cursor-pointer flex flex-col justify-between"
                   >
                     <div>
-                      <div className="flex items-center justify-between text-[10px] text-slate-500 font-semibold mb-3">
-                        <span className="text-indigo-400 uppercase tracking-widest bg-indigo-500/10 border border-indigo-500/10 px-2 py-0.5 rounded">
+                      <div className="flex items-center justify-between text-xs text-slate-400 font-semibold mb-3">
+                        <span className="text-indigo-400 uppercase tracking-widest bg-indigo-500/10 border border-indigo-500/15 px-2 py-0.5 rounded">
                           {art.category}
                         </span>
                         <div className="flex items-center gap-2">
@@ -186,7 +186,7 @@ const Blog = () => {
                         </div>
                       </div>
 
-                      <h3 className="text-lg md:text-xl font-bold text-slate-200 mt-2 group-hover:text-indigo-400 transition-colors">
+                      <h3 className="text-base md:text-lg font-bold text-slate-200 mt-2">
                         {art.title}
                       </h3>
                       <p className="text-slate-400 text-xs md:text-sm mt-2 leading-relaxed">
@@ -194,10 +194,10 @@ const Blog = () => {
                       </p>
                     </div>
 
-                    <div className="border-t border-white/5 pt-4 mt-4 flex items-center justify-end text-xs text-indigo-400 font-semibold group-hover:text-indigo-300 transition-colors">
+                    <div className="border-t border-white/5 pt-3.5 mt-4 flex items-center justify-end text-xs text-indigo-400 font-semibold">
                       <span className="flex items-center gap-1">Read Article <ArrowRight size={13} /></span>
                     </div>
-                  </motion.div>
+                  </div>
                 ))
               )}
             </div>
@@ -206,9 +206,9 @@ const Blog = () => {
           // 2. Article Reader view
           <motion.div 
             key="reader"
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
+            exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
             className="space-y-6"
           >
@@ -216,7 +216,7 @@ const Blog = () => {
             <div className="flex items-center justify-between">
               <button 
                 onClick={() => setSelectedArticle(null)}
-                className="flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-slate-200 bg-white/5 border border-white/5 px-4 py-2.5 rounded-xl transition-all"
+                className="flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-slate-200 bg-white/5 border border-white/5 px-4 py-2.5 rounded-xl transition-all cursor-pointer"
               >
                 <ArrowLeft size={14} /> Back to Articles
               </button>
@@ -227,9 +227,9 @@ const Blog = () => {
             </div>
 
             {/* Article Card */}
-            <div className="glass-card p-6 md:p-10 rounded-[2rem] border border-white/5 space-y-6">
+            <div className="glass-card p-6 md:p-8 rounded-2xl border border-white/5 space-y-6">
               {/* Meta */}
-              <div className="flex items-center gap-4 text-xs text-slate-500 font-semibold border-b border-white/5 pb-4">
+              <div className="flex items-center gap-4 text-xs text-slate-400 font-semibold border-b border-white/5 pb-4">
                 <span className="flex items-center gap-1.5"><Calendar size={13} /> {selectedArticle.date}</span>
                 <span>•</span>
                 <span className="flex items-center gap-1.5"><Clock size={13} /> {selectedArticle.readTime}</span>
@@ -238,27 +238,26 @@ const Blog = () => {
               </div>
 
               {/* Title */}
-              <h1 className="text-2xl md:text-4xl font-bold text-slate-100 tracking-tight leading-tight">
+              <h1 className="text-xl md:text-3xl font-bold text-slate-100 tracking-tight leading-tight">
                 {selectedArticle.title}
               </h1>
 
               {/* Markdown Content (Rendered dynamically) */}
-              <div className="prose prose-invert max-w-none text-slate-300 text-sm md:text-base leading-relaxed space-y-4">
+              <div className="prose prose-invert max-w-none text-slate-300 text-xs md:text-sm leading-relaxed space-y-4 font-sans font-medium">
                 {selectedArticle.content.split('\n\n').map((block, i) => {
                   if (block.startsWith('## ')) {
-                    return <h2 key={i} className="text-lg md:text-xl font-bold text-slate-100 mt-6 pt-4 border-t border-white/5">{block.replace('## ', '')}</h2>;
+                    return <h2 key={i} className="text-base md:text-lg font-bold text-slate-100 mt-6 pt-4 border-t border-white/5">{block.replace('## ', '')}</h2>;
                   }
                   if (block.startsWith('### ')) {
-                    return <h3 key={i} className="text-base font-bold text-slate-200 mt-4">{block.replace('### ', '')}</h3>;
+                    return <h3 key={i} className="text-sm md:text-base font-bold text-slate-200 mt-4">{block.replace('### ', '')}</h3>;
                   }
                   if (block.startsWith('```')) {
-                    // Code block
                     const lines = block.split('\n');
                     const lang = lines[0].replace('```', '');
                     const code = lines.slice(1, -1).join('\n');
                     return (
-                      <div key={i} className="bg-black/50 border border-white/5 rounded-2xl p-5 my-4 font-mono text-xs md:text-sm text-indigo-300 overflow-x-auto custom-scrollbar relative">
-                        <div className="absolute top-2 right-4 text-[9px] uppercase font-bold text-slate-500 select-none">
+                      <div key={i} className="bg-black/40 border border-white/5 rounded-xl p-4 my-4 font-mono text-xs text-indigo-300 overflow-x-auto custom-scrollbar relative">
+                        <div className="absolute top-2 right-4 text-xs uppercase font-bold text-slate-400 select-none">
                           {lang || 'code'}
                         </div>
                         <pre className="outline-none"><code>{code}</code></pre>
