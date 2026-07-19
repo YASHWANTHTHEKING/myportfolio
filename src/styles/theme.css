@@ -1,0 +1,38 @@
+/* ============================================
+   THEME — Custom animations & keyframes
+   ============================================ */
+
+/* fade-rise: slide up + fade in */
+@keyframes fadeRise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-rise {
+  animation: fadeRise 0.8s ease-out both;
+}
+
+.animate-fade-rise-delay {
+  animation: fadeRise 0.8s ease-out 0.2s both;
+}
+
+.animate-fade-rise-delay-2 {
+  animation: fadeRise 0.8s ease-out 0.4s both;
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-rise,
+  .animate-fade-rise-delay,
+  .animate-fade-rise-delay-2 {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
