@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export function Navbar() {
   return (
     <nav
@@ -14,8 +16,8 @@ export function Navbar() {
         }}
       >
         {/* Logo */}
-        <a
-          href="/"
+        <Link
+          to="/"
           className="font-display"
           style={{
             fontSize: '1.875rem',
@@ -27,7 +29,7 @@ export function Navbar() {
           aria-label="N. V. Yashwanth home"
         >
           Yashwanth
-        </a>
+        </Link>
 
         {/* Nav links */}
         <ul
@@ -35,11 +37,11 @@ export function Navbar() {
           style={{ listStyle: 'none' }}
           role="list"
         >
+          {/* Hash-anchor links (scroll) */}
           {[
             { label: 'Home', color: '#000000', href: '#' },
             { label: 'Work', color: '#6F6F6F', href: '#work' },
             { label: 'About', color: '#6F6F6F', href: '#about' },
-            { label: 'Notes', color: '#6F6F6F', href: '#notes' },
             { label: 'Contact', color: '#6F6F6F', href: '#contact' },
           ].map(({ label, color, href }) => (
             <li key={label}>
@@ -63,6 +65,28 @@ export function Navbar() {
               </a>
             </li>
           ))}
+
+          {/* Notes — React Router link to /notes page */}
+          <li>
+            <Link
+              to="/notes"
+              className="font-body"
+              style={{
+                fontSize: '0.875rem',
+                color: '#6F6F6F',
+                textDecoration: 'none',
+                transition: 'color 200ms ease',
+              }}
+              onMouseEnter={(e) =>
+                ((e.currentTarget as HTMLAnchorElement).style.color = '#000000')
+              }
+              onMouseLeave={(e) =>
+                ((e.currentTarget as HTMLAnchorElement).style.color = '#6F6F6F')
+              }
+            >
+              Notes
+            </Link>
+          </li>
         </ul>
 
         {/* CTA */}

@@ -1,22 +1,36 @@
 import { VideoBackground } from './components/VideoBackground'
 import { Navbar } from './components/Navbar'
 import { HeroSection } from './components/HeroSection'
+import { AboutSection } from './components/AboutSection'
+import { SkillsSection } from './components/SkillsSection'
+import { ProjectsSection } from './components/ProjectsSection'
+import { EducationExperienceSection } from './components/EducationExperienceSection'
+import { AchievementsSection } from './components/AchievementsSection'
+import { ContactSection } from './components/ContactSection'
 
 function App() {
   return (
-    <main
-      className="relative w-full overflow-hidden"
-      style={{ minHeight: '100svh', backgroundColor: '#ffffff' }}
-    >
-      {/* Layer 0 — Video + gradient overlay */}
-      <VideoBackground />
+    <>
+      {/* ── HERO (fullscreen with video) ── */}
+      <div
+        className="relative w-full overflow-hidden"
+        style={{ minHeight: '100svh', backgroundColor: '#ffffff' }}
+      >
+        <VideoBackground />
+        <Navbar />
+        <HeroSection />
+      </div>
 
-      {/* Layer 10 — Navigation */}
-      <Navbar />
-
-      {/* Layer 10 — Hero content */}
-      <HeroSection />
-    </main>
+      {/* ── REMAINING SECTIONS ── */}
+      <main style={{ backgroundColor: '#ffffff' }}>
+        <AboutSection />
+        <SkillsSection />
+        <ProjectsSection />
+        <EducationExperienceSection />
+        <AchievementsSection />
+        <ContactSection />
+      </main>
+    </>
   )
 }
 

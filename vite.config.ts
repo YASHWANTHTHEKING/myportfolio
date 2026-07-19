@@ -8,4 +8,6 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  // Base path for GitHub Pages: https://yashwanththeking.github.io/myportfolio/
+  base: '/myportfolio/',
 })
